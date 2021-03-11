@@ -3,7 +3,7 @@ An app to cure boredness!
 
 ## Description
 
-Do you ever feel bored out of your mind during a freaking pandemic!!  If the answer is yes, you can waste your hours away using Boredify.  Input your name and we will make uneducated guesses about your age, gender and more.  If you have Zoom fatigue or just dazing off in a conversation, use our random advise generator so you can have an odd little tidbit to add to the dialogue. Or if you are really want to stir the pot, check out the evil insult generator! In any case, our app is sure to help you waste time when needed!
+Do you ever feel bored out of your mind during a freaking pandemic!!  If the answer is yes, you can waste your hours away using Boredify.  Want to know more about cats? Who doesn't?! Let us serve up a random cat fact at will to increase your grey matter! .  If you have Zoom fatigue or just dazing off in a conversation, use our random advise generator for something to do to break up the monotony. Or if you are really want to stir the pot, check out the evil insult generator! In any case, our app is sure to help you waste time when needed!
 
 ## User Story
 ```
