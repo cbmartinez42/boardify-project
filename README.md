@@ -27,3 +27,12 @@ WHEN I get bored with an activity
 THEN I can delete it 
 ```
 
+APIs to be used: 
+Daily cat facts - 3
+Bored activities - 4
+Evil insult generator - 3
+Joke api - 4
+Superheroes - 3
+
+Next up if we have time:
+RoboHash - Generate random robot/alien avatars from any text
