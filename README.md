@@ -36,3 +36,14 @@ APIs to be used:
 
 Next up if we have time:
 * RoboHash - Generate random robot/alien avatars from any text
+
+Published site:
+[https://cbmartinez42.github.io/boredify-project/](https://cbmartinez42.github.io/boredify-project/)
+
+Screenshots of wireframe:
+
+<img src="./assets/images/wireframe-screenshot-1.png">
+<img src="./assets/images/wireframe-screenshot-2.png">
+
+Screenshot of published site:
+<img src="./assets/images/boredify-screenshot.png">
