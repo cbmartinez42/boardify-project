@@ -13,14 +13,18 @@ const rdmImageCol = document.getElementById('rdm-image')
 
 
 // random image for right column
+const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman']
 
 const rdmImageBtn = document.createElement('button');
     rdmImageBtn.classList.add('is-info');
     rdmImageBtn.textContent = "Click here for a surprise!";
-rdmImageCol.appendChild(rdmImageBtn)
+rdmImageCol.appendChild(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage());
 
 function genRdmImage(){
     // rdm image function here
 
+
+let rmdImageSelection =  rdmImages[i]
+rdmImgUrl = '../images/' + rmdImageSelection
 }
