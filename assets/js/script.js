@@ -16,7 +16,8 @@ const rdmImageCol = document.getElementById('rdm-image')
 const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman']
 
 const rdmImageBtn = document.createElement('button');
-    rdmImageBtn.setAttribute('class', 'button is-info is-medium');
+    rdmImageBtn.setAttribute('class', 'button is-info is-medium is-centered');
+    rdmImageBtn.setAttribute('id', 'randomCatImage');
     rdmImageBtn.textContent = "Click here for a surprise!";
 rdmImageCol.prepend(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
