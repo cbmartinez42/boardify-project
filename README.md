@@ -42,8 +42,8 @@ Published site:
 
 Screenshots of wireframe:
 
-<img src="./assets/images/wireframe-screenshot-1.png">
-<img src="./assets/images/wireframe-screenshot-2.png">
+<img src="./assets/images/wireframe-screenshot-1.PNG">
+<img src="./assets/images/wireframe-screenshot-2.PNG">
 
 Screenshot of published site:
-<img src="./assets/images/boredify-screenshot.png">
+<img src="./assets/images/boredify-screenshot.PNG">
