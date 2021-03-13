@@ -16,10 +16,10 @@ const rdmImageCol = document.getElementById('rdm-image')
 const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman']
 
 const rdmImageBtn = document.createElement('button');
-    rdmImageBtn.classList.add('is-info');
+    rdmImageBtn.setAttribute('class', 'button is-info is-medium');
     rdmImageBtn.textContent = "Click here for a surprise!";
-rdmImageCol.appendChild(rdmImageBtn);
-rdmImageBtn.addEventListener('click', genRdmImage());
+rdmImageCol.prepend(rdmImageBtn);
+rdmImageBtn.addEventListener('click', genRdmImage);
 
 function genRdmImage(){
     // rdm image function here
