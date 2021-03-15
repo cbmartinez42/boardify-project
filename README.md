@@ -3,7 +3,7 @@ An app to cure boredness!
 
 ## Description
 
-Do you ever feel bored out of your mind during a freaking pandemic!!  If the answer is yes, you can waste your hours away using Boredify.  Want to know more about cats? Who doesn't?! Let us serve up a random cat fact at will to increase your grey matter!  If you have Zoom fatigue or are just dazing off in a conversation, use our random advise generator for something to do to break up the monotony. Or if you are really want to stir the pot, check out the evil insult generator! In any case, our app is sure to help you waste time when needed!
+Do you ever feel bored out of your mind during a freaking pandemic!!  If the answer is yes, you can waste your hours away using Boredify.  Want to know more about cats? Who doesn't?! Let us serve up a random cat fact at will to increase your grey matter!  If you have Zoom fatigue or are just dazing off in a conversation, you can look up your favorite Superhero or Villain! Use our random activity generator for something to do to break up the monotony of the day! Want to know what your alien or robot alter-ego looks like? Try our RobotHash app to serve up an avatar based on your input!
 
 ## User Story
 ```
@@ -32,7 +32,7 @@ APIs to be used:
 * Bored API - Get random activity to try to break the borednessocity! - https://www.boredapi.com/
 * RobotHash - Enter any text or number for a randomly generated robot, alien, monster, etc. - https://robohash.org/
 * Random Jokes - Get a random joke for giggles! - https://github.com/15Dkatz/official_joke_api or (https://icanhazdadjoke.com/api, http://www.icndb.com/api/, https://sv443.net/jokeapi/v2/)
-* Superheros - Search to learn more about any Superhero or Villain- https://superheroapi.com/
+* Superheroes - Search to learn more about any Superhero or Villain- https://superheroapi.com/
 
 If we have time we will add additional APIs to make a more rich UX
 
