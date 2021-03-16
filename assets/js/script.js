@@ -1,6 +1,7 @@
 
 // declare variables
 const rdmImageCol = document.getElementById('rdm-image')
+const splash = $(".splash");
 
 
 
@@ -32,8 +33,8 @@ rdmImgUrl = '../images/' + rmdImageSelection
 }
 
 
-// bored API functions
-let bored = function () {
+// // bored API functions
+let bored = function (event) {
     let apiURL = `http://www.boredapi.com/api/activity/`;
   
     fetch(apiURL)
@@ -44,13 +45,12 @@ let bored = function () {
       })
       .then(function (data) {
               console.log(data);
-        const splash = $(".splash");
       
         //this empties the contents of the row
-        splash.empty();
+        $(splash).empty();
         boredDisplay(data);
-      }
-}
+      })
+};
 
 let boredDisplay = function (data) { 
     const activity = data.activity;
@@ -62,3 +62,45 @@ let boredDisplay = function (data) {
         <p>Number of Participants; ${participants}</p>
         <p>Type of Activity; ${type}</p>`)
 }
+
+// end bored API functions
+
+// roboHash API functions 
+const roboHash = function (event){
+  $('.splash').empty()
+
+  const submitBtn = document.createElement('button');
+  submitBtn.classList.add('button');
+  const btnText = document.createTextNode('Get your AVATAR!')
+  submitBtn.appendChild(btnText);
+  const inputDiv = $('div')
+    .addClass('control')
+    .html(`<input class='input' type='text' placeholder='Enter your random text/numbers here!'`);
+  const title = document.createElement('h3');
+  const titleText = document.createTextNode('Create your new AVATAR!')
+  const body = document.createElement('div');
+  body.classList.add('roboBody');
+  const col = document.createElement('div');
+  col.classList.add('column');
+  col.classList.add('roboCol');
+  const div = document.createElement('div');
+  div.classList.add('container');
+  div.classList.add('roboCont');
+
+  
+  title.appendChild(titleText)
+  body.appendChild(title)
+  body.append(inputDiv)
+  body.appendChild(submitBtn)
+  col.appendChild(body)
+  div.appendChild(col)
+  splash.append(div) 
+
+
+}
+
+
+
+// eventlisteners go here
+document.getElementById('bored').addEventListener('click', bored)
+document.getElementById('roboHash').addEventListener('click', roboHash)
