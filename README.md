@@ -4,7 +4,7 @@ An app to cure boredness!
 ## Description
 
 Do you ever feel bored out of your mind during a freaking pandemic!!  If the answer is yes, you can waste your hours away using Boredify.  Want to know more about cats? Who doesn't?! Let us serve up a random cat fact at will to increase your grey matter!  If you have Zoom fatigue or are just dazing off in a conversation, use our random advise generator for something to do to break up the monotony. Our app is sure to help you waste time when needed!
-
+    
 ## User Story
 ```
 AS A Boredify user
