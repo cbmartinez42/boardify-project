@@ -5,6 +5,7 @@ An app to cure boredness!
 
 Do you ever feel bored out of your mind during a freaking pandemic!!  If the answer is yes, you can waste your hours away using Boredify.  Want to know more about cats? Who doesn't?! Let us serve up a random cat fact at will to increase your grey matter!  If you have Zoom fatigue or are just dazing off in a conversation, you can look up your favorite Superhero or Villain! Use our random activity generator for something to do to break up the monotony of the day! Want to know what your alien or robot alter-ego looks like? Try our RobotHash app to serve up an avatar based on your input!
 
+
 ## User Story
 ```
 AS A Boredify user

@@ -1,22 +1,3 @@
-<div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Modal title</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-      <!-- Content ... -->
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-    </footer>
-  </div>
-</div>
-
-
-
 
 // declare variables
 const rdmImageCol = document.getElementById('rdm-image')
@@ -48,4 +29,36 @@ function genRdmImage(){
 
 let rmdImageSelection =  rdmImages[i]
 rdmImgUrl = '../images/' + rmdImageSelection
+}
+
+
+// bored API functions
+let bored = function () {
+    let apiURL = `http://www.boredapi.com/api/activity/`;
+  
+    fetch(apiURL)
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then(function (data) {
+              console.log(data);
+        const splash = $(".splash");
+      
+        //this empties the contents of the row
+        splash.empty();
+        boredDisplay(data);
+      }
+}
+
+let boredDisplay = function (data) { 
+    const activity = data.activity;
+    const participants = data.participants;
+    const type = data.type;
+    const container = $("<div>")
+        .html(`<h3>Try This</h3>
+        <p>${activity}</p>
+        <p>Number of Participants; ${participants}</p>
+        <p>Type of Activity; ${type}</p>`)
 }
