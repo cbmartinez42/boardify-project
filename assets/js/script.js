@@ -29,3 +29,32 @@ function genRdmImage(){
 let rmdImageSelection =  rdmImages[i]
 rdmImgUrl = '../images/' + rmdImageSelection
 }
+
+let bored = function () {
+    let apiURL = `http://www.boredapi.com/api/activity/`;
+  
+    fetch(apiURL)
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then(function (data) {
+              console.log(data);
+        const splash = $(".splash");
+      
+        //this empties the contents of the row
+        splash.empty();
+        boredDisplay(data);
+      }
+
+let boredDisplay = function (data) { 
+    const activity = data.activity;
+    const participants = data.participants;
+    const type = data.type;
+    const container = $("<div>")
+        .html(`<h3>Try This</h3>
+        <p>${activity}</p>
+        <p>Number of Participants; ${participants}</p>
+        <p>Type of Activity; ${type}</p>`)
+}
