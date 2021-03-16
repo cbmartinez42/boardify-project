@@ -57,7 +57,7 @@ let boredDisplay = function (data) {
     const participants = data.participants;
     const type = data.type;
     const container = $("<div>")
-        .html(`<h3>Try This</h3>
+        container.html(`<h3>Try This</h3>
         <p>${activity}</p>
         <p>Number of Participants; ${participants}</p>
         <p>Type of Activity; ${type}</p>`)
@@ -67,34 +67,42 @@ let boredDisplay = function (data) {
 
 // roboHash API functions 
 const roboHash = function (event){
-  $('.splash').empty()
+  $(splash).empty();
 
   const submitBtn = document.createElement('button');
+  submitBtn.setAttribute('id', 'submitBtn');
   submitBtn.classList.add('button');
-  const btnText = document.createTextNode('Get your AVATAR!')
-  submitBtn.appendChild(btnText);
-  const inputDiv = $('div')
-    .addClass('control')
-    .html(`<input class='input' type='text' placeholder='Enter your random text/numbers here!'`);
+  const btnText = document.createTextNode('Get your AVATAR!');
+    submitBtn.appendChild(btnText);
+  const inputDiv = $('<div>');
+    inputDiv.addClass('control');
+  const input = document.createElement('input');
+  input.setAttribute('class', 'input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('placeholder', 'Enter your random text or numbers here!');
+    // .attr({'class':'input', 'type':'text', 'placeholder':'Enter your random text or numbers here!'});
+    inputDiv.append(input);
   const title = document.createElement('h3');
-  const titleText = document.createTextNode('Create your new AVATAR!')
+  const titleText = document.createTextNode('Create your new AVATAR!');
+    title.appendChild(titleText);
   const body = document.createElement('div');
   body.classList.add('roboBody');
+    body.appendChild(title);
+    body.append(inputDiv);
+    body.appendChild(submitBtn);
   const col = document.createElement('div');
-  col.classList.add('column');
-  col.classList.add('roboCol');
+    col.classList.add('column');
+    col.classList.add('roboCol');
+    col.appendChild(body);
   const div = document.createElement('div');
   div.classList.add('container');
   div.classList.add('roboCont');
-
+    div.appendChild(col);
+    splash.append(div);
   
-  title.appendChild(titleText)
-  body.appendChild(title)
-  body.append(inputDiv)
-  body.appendChild(submitBtn)
-  col.appendChild(body)
-  div.appendChild(col)
-  splash.append(div) 
+
+ 
+  
 
 
 }
