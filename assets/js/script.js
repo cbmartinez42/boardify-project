@@ -74,7 +74,7 @@ let boredDisplay = function (data) {
 // roboHash API functions 
 const roboHash = function (event){
   let apiURL = `https://robohash.org/`;
-  // Not sure if this is the API site but couldnt find any documentation
+  // Not sure if this is the API site, couldnt find any documentation
   
   fetch(apiURL)
     .then(function (response) {
@@ -198,7 +198,7 @@ let catFactsDisplay = function (data) {
 
 // random jokes API function
 let randomJokes = function (event) {
-  let apiURL = `https://jokeapi-v2.p.rapidapi.com/submit`;
+  let apiURL = `https://api.icndb.com`;
 
   fetch(apiURL)
     .then(function (response) {
@@ -215,16 +215,14 @@ let randomJokes = function (event) {
 
 let randomJokesDisplay = function (data) { 
   const category = data.category;
-  const type = data.type;
+  const value = data.value;
   const joke = data.joke;
   const container = $("<div>")
       container.html(`<h3>Ready for a Laugh?!</h3>
-      <p>Joke Category; ${category}</p>
-      <p>Type of Joke; ${type}</p>
+      <p>How Many Jokes Can You Handle?; ${value}</p>
       <p>Here goes funny... ; ${joke}</p>`)
 }
-// there are a lot of joke APIs, is this the one we want
-// there are flag options to look into for blocking NSFW jokes
+// there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
 // end random jokes API function
 
 
