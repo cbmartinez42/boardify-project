@@ -15,7 +15,7 @@ const splash = $(".splash");
 
 
 // random image for right column
-const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg',]
+const rdmImages = ['dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg',]
 
 const rdmImageBtn = document.createElement('button');
     rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
@@ -27,15 +27,16 @@ rdmImageBtn.addEventListener('click', genRdmImage);
     // rdm image function here
     // I searched royalty free images from https://www.pickpik.com/search?q=funny&sort=aesthetic&page=2 and added some more to the images folder
     // I (sdb) am not attached to any of these images, delete away if (any of) you like
-    function genRdmImage(){
-$('.random-image').empty();
-let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
-rdmImgUrl = './assets/images/' + rmdImageSelection
-const funnyImage = document.createElement('img');
-funnyImage.setAttribute('alt', 'Funny Image');
-funnyImage.setAttribute('id', 'funnyImage');
-funnyImage.setAttribute('src', rdmImgUrl);
-$('.random-image').append(funnyImage);
+function genRdmImage(){
+  // empty prev random images
+  $('.random-image').empty();
+  let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
+  rdmImgUrl = './assets/images/' + rmdImageSelection
+  const funnyImage = document.createElement('img');
+  funnyImage.setAttribute('alt', 'Funny Image');
+  funnyImage.setAttribute('id', 'funnyImage');
+  funnyImage.setAttribute('src', rdmImgUrl);
+  $('.random-image').append(funnyImage);
 }
 
 
@@ -73,33 +74,9 @@ let boredDisplay = function (data) {
 
 // roboHash API functions 
 const roboHash = function (event){
-  const userInput = $('.user-input')
-  let apiURL = 'https://robohash.org/' + userInput;
-  // Not sure if this is the API site, couldnt find any documentation
-  
-  // fetch(apiURL)
-  //   .then(function (response) {
-  //     if (response.ok) {
-  //       return response.json();
-  //     }
-  //   })
-  //   .then(function (data) {
-  //           console.log(data);
-    
-  //     //this empties the contents of the row
+      //this empties the contents of the row
       $(splash).empty();
-      roboHashDisplay(); // data to be added later
-  //   });
-};
-
-let roboHashDisplay = function (data) { 
   
-  // const container = $("<div>")
-  //     .html(`<h3>Create Your Own Robot Image</h3>
-  //     <p>Input Any Text to Generate; ${inputText}</p>`)
-      // Can append ?set=set2 to Image's URLs to generate Random monsters as an additional option
-
-      // Not sure if this section below is in addition to or in replace of the container const above??
   const submitBtn = document.createElement('button');
   submitBtn.setAttribute('id', 'submitBtn');
   submitBtn.classList.add('button');
@@ -130,9 +107,13 @@ let roboHashDisplay = function (data) {
   div.classList.add('roboCont');
     div.appendChild(col);
     splash.append(div);
+
+  const userInput = $('.user-input')
+  let apiURL = 'https://robohash.org/' + userInput;
+  const roboHashImage = document.createElement('img')
+  roboHashImage.setAttribute('src', apiURL)
 }
 // end roboHash API functions
-
 
 
 // // superHero API functions
@@ -170,25 +151,53 @@ let superHeroDisplay = function (data) {
 
 // cat facts API function
 let catFacts = function (event) {
-  let apiURL = 'http://cat-fact.herokuapp.com';
+  let apiURL = 'http://cat-fact.herokuapp.com/facts/random';
 
   fetch(apiURL)
-    .then(function (response) {
+  .then(function (response) {
       if (response.ok) {
-        return response.json();
+      response.json().then(function (data) {
+          catFactsDisplay(data);
+      });
+      } else {
+      alert('Error: ' + response.statusText);  // need to swap out
       }
-    })
-    .then(function (data) {
-            console.log(data);
-          $(splash).empty();
-      catFactsDisplay(data);
-    })
+  })
+  .catch(function (error) {
+      alert('Unable to connect to Facts Database');   // need to swap out
+  });
 };
 
 let catFactsDisplay = function (data) { 
   const facts = data.facts;
   const container = $("<div>")
       .html(`<h3>Click Fur a Cat Fact!</h3>`)
+
+
+  const submitBtn = document.createElement('button');
+  submitBtn.setAttribute('id', 'submitBtn');
+  submitBtn.classList.add('button');
+  const btnText = document.createTextNode('Get a cat fact!');
+    submitBtn.appendChild(btnText);
+  
+  const title = document.createElement('h3');
+  const titleText = document.createTextNode('Cats...the other state of matter');
+    title.appendChild(titleText);
+  const body = document.createElement('div');
+  body.classList.add('roboBody');
+    body.appendChild(title);
+    body.append(inputDiv);
+    body.appendChild(submitBtn);
+  const col = document.createElement('div');
+    col.classList.add('column');
+    col.classList.add('roboCol');
+    col.appendChild(body);
+  const div = document.createElement('div');
+  div.classList.add('container');
+  div.classList.add('roboCont');
+    div.appendChild(col);
+    splash.append(div);
+    
 }
 // Is this all the API provides??
 // end cat facts API function
@@ -218,7 +227,7 @@ let randomJokesDisplay = function (data) {
   const joke = data.joke;
   const container = $("<div>")
       .html(`<h3>Ready for a Laugh?!</h3>
-      <p>How Many Jokes Can You Handle?; ${value}</p>
+      <p>How Many Jokes Can You Handle? ${value}</p>
       <p>Here goes funny... ; ${joke}</p>`)
 }
 // there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
