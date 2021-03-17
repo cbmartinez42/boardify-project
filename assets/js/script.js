@@ -15,7 +15,7 @@ const splash = $(".splash");
 
 
 // random image for right column
-const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg']
+const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg',]
 
 const rdmImageBtn = document.createElement('button');
     rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
@@ -26,7 +26,8 @@ rdmImageBtn.addEventListener('click', genRdmImage);
 
     // rdm image function here
     // I searched royalty free images from https://www.pickpik.com/search?q=funny&sort=aesthetic&page=2 and added some more to the images folder
-function genRdmImage(){
+    // I (sdb) am not attached to any of these images, delete away if (any of) you like
+    function genRdmImage(){
 $('.random-image').empty();
 let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
 rdmImgUrl = './assets/images/' + rmdImageSelection
@@ -73,7 +74,7 @@ let boredDisplay = function (data) {
 // roboHash API functions 
 const roboHash = function (event){
   let apiURL = `https://robohash.org/`;
-  // Not sure if this is the API site but couldnt find any documentation
+  // Not sure if this is the API site, couldnt find any documentation
   
   fetch(apiURL)
     .then(function (response) {
@@ -197,7 +198,7 @@ let catFactsDisplay = function (data) {
 
 // random jokes API function
 let randomJokes = function (event) {
-  let apiURL = `https://jokeapi-v2.p.rapidapi.com/submit`;
+  let apiURL = `https://api.icndb.com`;
 
   fetch(apiURL)
     .then(function (response) {
@@ -214,16 +215,14 @@ let randomJokes = function (event) {
 
 let randomJokesDisplay = function (data) { 
   const category = data.category;
-  const type = data.type;
+  const value = data.value;
   const joke = data.joke;
   const container = $("<div>")
       container.html(`<h3>Ready for a Laugh?!</h3>
-      <p>Joke Category; ${category}</p>
-      <p>Type of Joke; ${type}</p>
+      <p>How Many Jokes Can You Handle?; ${value}</p>
       <p>Here goes funny... ; ${joke}</p>`)
 }
-// there are a lot of joke APIs, is this the one we want
-// there are flag options to look into for blocking NSFW jokes
+// there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
 // end random jokes API function
 
 
