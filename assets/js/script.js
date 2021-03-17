@@ -1,6 +1,6 @@
 
 // declare variables
-const rdmImageCol = document.getElementById('rdm-image')
+const rdmImageCol = document.getElementById('rdm-image');
 const splash = $(".splash");
 
 
@@ -41,7 +41,7 @@ $('.random-image').append(funnyImage);
 
 // // bored API functions
 let bored = function (event) {
-    let apiURL = `http://www.boredapi.com/api/activity/`;
+    let apiURL = 'http://www.boredapi.com/api/activity/';
   
     fetch(apiURL)
       .then(function (response) {
@@ -62,18 +62,19 @@ let boredDisplay = function (data) {
     const participants = data.participants;
     const type = data.type;
     const container = $("<div>")
-        container.html(`<h3>Try This</h3>
+        .html(`<h3>Try This</h3>
         <p>${activity}</p>
-        <p>Number of Participants; ${participants}</p>
-        <p>Type of Activity; ${type}</p>`)
-}
+        <p>Number of Participants: ${participants}</p>
+        <p>Type of Activity: ${type}</p>`);
+};
 // end bored API functions
 
 
 
 // roboHash API functions 
 const roboHash = function (event){
-  let apiURL = `https://robohash.org/`;
+  const userInput = $('.user-input')
+  let apiURL = 'https://robohash.org/' + userInput;
   // Not sure if this is the API site, couldnt find any documentation
   
   fetch(apiURL)
@@ -88,16 +89,14 @@ const roboHash = function (event){
       //this empties the contents of the row
       $(splash).empty();
       roboHashDisplay(data);
-    })
+    });
 };
 
 let roboHashDisplay = function (data) { 
-  const activity = data.activity;
-  const participants = data.participants;
-  const type = data.type;
-  const container = $("<div>")
-      container.html(`<h3>Create Your Own Robot Image</h3>
-      <p>Input Any Text to Generate; ${inputText}</p>`)
+  
+  // const container = $("<div>")
+  //     .html(`<h3>Create Your Own Robot Image</h3>
+  //     <p>Input Any Text to Generate; ${inputText}</p>`)
       // Can append ?set=set2 to Image's URLs to generate Random monsters as an additional option
 
       // Not sure if this section below is in addition to or in replace of the container const above??
@@ -109,7 +108,7 @@ let roboHashDisplay = function (data) {
   const inputDiv = $('<div>');
     inputDiv.addClass('control');
   const input = document.createElement('input');
-  input.setAttribute('class', 'input');
+  input.setAttribute('class', 'input user-input');
   input.setAttribute('type', 'text');
   input.setAttribute('placeholder', 'Enter your random text or numbers here!');
     // .attr({'class':'input', 'type':'text', 'placeholder':'Enter your random text or numbers here!'});
@@ -138,7 +137,7 @@ let roboHashDisplay = function (data) {
 
 // // superHero API functions
 let superHero = function (event) {
-  let apiURL = `http://superheroapi.com/api/10224580750642127`;
+  let apiURL = 'http://superheroapi.com/api/10224580750642127';
 
   fetch(apiURL)
     .then(function (response) {
@@ -150,7 +149,7 @@ let superHero = function (event) {
             console.log(data);
           $(splash).empty();
       superHeroDisplay(data);
-    })
+    });
 };
 
 let superHeroDisplay = function (data) { 
@@ -159,19 +158,19 @@ let superHeroDisplay = function (data) {
   const characterImage = data.characterImage;
   const work = data.work;
   const container = $("<div>")
-      container.html(`<h3>Superhero Superfun, Check Here</h3>
+      .html(`<h3>Superhero Superfun, Check Here</h3>
       <p>${id}</p>
       <p>Characters Biography; ${biography}</p>
       <img>Superhero Image; ${characterImage}</img>
-      <p>Character's Work Occupation and Operation Base;  ${work}</p>`)
-}
+      <p>Character's Work Occupation and Operation Base;  ${work}</p>`);
+};
 // end superHero API function
 
 
 
 // cat facts API function
 let catFacts = function (event) {
-  let apiURL = `http://cat-fact.herokuapp.com`;
+  let apiURL = 'http://cat-fact.herokuapp.com';
 
   fetch(apiURL)
     .then(function (response) {
@@ -189,7 +188,7 @@ let catFacts = function (event) {
 let catFactsDisplay = function (data) { 
   const facts = data.facts;
   const container = $("<div>")
-      container.html(`<h3>Click Fur a Cat Fact!</h3>`)
+      .html(`<h3>Click Fur a Cat Fact!</h3>`)
 }
 // Is this all the API provides??
 // end cat facts API function
@@ -198,7 +197,7 @@ let catFactsDisplay = function (data) {
 
 // random jokes API function
 let randomJokes = function (event) {
-  let apiURL = `https://api.icndb.com`;
+  let apiURL = 'https://api.icndb.com';
 
   fetch(apiURL)
     .then(function (response) {
@@ -218,7 +217,7 @@ let randomJokesDisplay = function (data) {
   const value = data.value;
   const joke = data.joke;
   const container = $("<div>")
-      container.html(`<h3>Ready for a Laugh?!</h3>
+      .html(`<h3>Ready for a Laugh?!</h3>
       <p>How Many Jokes Can You Handle?; ${value}</p>
       <p>Here goes funny... ; ${joke}</p>`)
 }
@@ -227,8 +226,8 @@ let randomJokesDisplay = function (data) {
 
 
 // eventlisteners go here
-document.getElementById('bored').addEventListener('click', bored)
-document.getElementById('roboHash').addEventListener('click', roboHash)
-document.getElementById('superHero').addEventListener('click', superHero)
-document.getElementById('catFacts').addEventListener('click', catFacts)
-document.getElementById('randomJokes').addEventListener('click', randomJokes)
+document.getElementById('bored').addEventListener('click', bored);
+document.getElementById('roboHash').addEventListener('click', roboHash);
+document.getElementById('superHero').addEventListener('click', superHero);
+document.getElementById('catFacts').addEventListener('click', catFacts);
+document.getElementById('randomJokes').addEventListener('click', randomJokes);
