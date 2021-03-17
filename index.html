@@ -27,7 +27,7 @@
     <!-- sidebar for favorites -->
     <section class="section">
       <div class="columns">
-          <div class="column is-one-quarter favorites">
+          <div class="column is-one-fifth favorites">
             <h3>Favorites</h3>
                <ul>
                 <li>
@@ -50,17 +50,20 @@
 
 
         <!-- main splash page -->
-        <div class="column is-half splash">
+        <div class="column is-half splash ">
             <h3>Main body</h3>
             <ul>
                 <li>
                   Cat facts - Want to know more about cats? Get a random cat fact here!
                 </li>
                 <li>
-                  <button class = "button">Bored Activity</button>
+                  <button class="button is-rounded" id="bored">Bored Activity</button>
                 </li>
                 <li>
-                  RobotHash - Enter any text or number for a randomly generated robot, alien, monster, etc.
+                  <div class="field is-horizontal">
+                  <button class="button is-rounded" id="roboHash">RobotHash</button> 
+                  <p class="field-label">Enter any text or number for a randomly generated robot, alien, monster and more! Who knows what you'll get!</p>
+                  </div>    
                 </li>
                 <li>
                   Random Jokes - Get a random joke for giggles!
@@ -73,7 +76,8 @@
 
         <!-- random image in right column -->
         <div class="column is-one-quarter image-col" id="rdm-image">
-          <img class="random-image" src="/assets/images/catwoman2.jpg" alt="Random Image">
+          <figure class='random-image image'></figure>
+          <!-- <img class="random-image" src="/assets/images/catwoman2.jpg" alt="Random Image"> -->
         </div>
       </div>
 
@@ -88,6 +92,7 @@
           </p>
         </div>
       </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="./assets/js/script.js"></script>
 </body>
 </html>

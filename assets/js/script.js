@@ -1,5 +1,7 @@
+
 // declare variables
 const rdmImageCol = document.getElementById('rdm-image')
+const splash = $(".splash");
 
 
 
@@ -13,24 +15,30 @@ const rdmImageCol = document.getElementById('rdm-image')
 
 
 // random image for right column
-const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman']
+const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg']
 
 const rdmImageBtn = document.createElement('button');
-    rdmImageBtn.setAttribute('class', 'button is-info is-medium is-centered');
-    rdmImageBtn.setAttribute('id', 'randomCatImage');
-    rdmImageBtn.textContent = "Click here for a surprise!";
-rdmImageCol.prepend(rdmImageBtn);
+    rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
+    rdmImageBtn.setAttribute('id', 'randomImageBtn');
+    rdmImageBtn.textContent = ("Click here for a surprise!");
+rdmImageCol.append(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
 
-function genRdmImage(){
     // rdm image function here
-
-
-let rmdImageSelection =  rdmImages[i]
-rdmImgUrl = '../images/' + rmdImageSelection
+function genRdmImage(){
+$('.random-image').empty();
+let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
+rdmImgUrl = './assets/images/' + rmdImageSelection
+const funnyImage = document.createElement('img');
+funnyImage.setAttribute('alt', 'Funny Image');
+funnyImage.setAttribute('id', 'funnyImage');
+funnyImage.setAttribute('src', rdmImgUrl);
+$('.random-image').append(funnyImage);
 }
 
-let bored = function () {
+
+// // bored API functions
+let bored = function (event) {
     let apiURL = `http://www.boredapi.com/api/activity/`;
   
     fetch(apiURL)
@@ -41,20 +49,70 @@ let bored = function () {
       })
       .then(function (data) {
               console.log(data);
-        const splash = $(".splash");
       
         //this empties the contents of the row
-        splash.empty();
+        $(splash).empty();
         boredDisplay(data);
-      }
+      })
+};
 
 let boredDisplay = function (data) { 
     const activity = data.activity;
     const participants = data.participants;
     const type = data.type;
     const container = $("<div>")
-        .html(`<h3>Try This</h3>
+        container.html(`<h3>Try This</h3>
         <p>${activity}</p>
         <p>Number of Participants; ${participants}</p>
         <p>Type of Activity; ${type}</p>`)
 }
+
+// end bored API functions
+
+// roboHash API functions 
+const roboHash = function (event){
+  $(splash).empty();
+
+  const submitBtn = document.createElement('button');
+  submitBtn.setAttribute('id', 'submitBtn');
+  submitBtn.classList.add('button');
+  const btnText = document.createTextNode('Get your AVATAR!');
+    submitBtn.appendChild(btnText);
+  const inputDiv = $('<div>');
+    inputDiv.addClass('control');
+  const input = document.createElement('input');
+  input.setAttribute('class', 'input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('placeholder', 'Enter your random text or numbers here!');
+    // .attr({'class':'input', 'type':'text', 'placeholder':'Enter your random text or numbers here!'});
+    inputDiv.append(input);
+  const title = document.createElement('h3');
+  const titleText = document.createTextNode('Create your new AVATAR!');
+    title.appendChild(titleText);
+  const body = document.createElement('div');
+  body.classList.add('roboBody');
+    body.appendChild(title);
+    body.append(inputDiv);
+    body.appendChild(submitBtn);
+  const col = document.createElement('div');
+    col.classList.add('column');
+    col.classList.add('roboCol');
+    col.appendChild(body);
+  const div = document.createElement('div');
+  div.classList.add('container');
+  div.classList.add('roboCont');
+    div.appendChild(col);
+    splash.append(div);
+  
+
+ 
+  
+
+
+}
+
+
+
+// eventlisteners go here
+document.getElementById('bored').addEventListener('click', bored)
+document.getElementById('roboHash').addEventListener('click', roboHash)
