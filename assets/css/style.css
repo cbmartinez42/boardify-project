@@ -1,6 +1,7 @@
 body {
     font-size: 1.5rem;
-    font-size: 90%;
+    font-size: 95%;
+    
 }
 
 .title {
@@ -38,13 +39,20 @@ h3 {
     margin-bottom: 1.5em;
 }
 
-#randomCatImage {
-    /* align-content: center; */
-    justify-content: center;
+#funnyImage {
+    max-height: 280px;
+    width: auto;
 }
+
+.random-image-btn {
+    justify-content: center; /* why isn't this working?? */
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
 .image-col {
     background-color: aqua;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     justify-self: center;
 }
 
@@ -55,8 +63,9 @@ h3 {
 .random-image {
     align-self: center;
     justify-self: center;
+    max
 }
 
-.button {
+/* .button {
     margin-bottom: 1.5em;
-}
+} */

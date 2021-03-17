@@ -15,21 +15,25 @@ const splash = $(".splash");
 
 
 // random image for right column
-const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman']
+const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg']
 
 const rdmImageBtn = document.createElement('button');
-    rdmImageBtn.setAttribute('class', 'button is-info is-medium is-centered');
-    rdmImageBtn.setAttribute('id', 'randomCatImage');
-    rdmImageBtn.textContent = "Click here for a surprise!";
-rdmImageCol.prepend(rdmImageBtn);
+    rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
+    rdmImageBtn.setAttribute('id', 'randomImageBtn');
+    rdmImageBtn.textContent = ("Click here for a surprise!");
+rdmImageCol.append(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
 
-function genRdmImage(){
     // rdm image function here
-
-
-let rmdImageSelection =  rdmImages[i]
-rdmImgUrl = '../images/' + rmdImageSelection
+function genRdmImage(){
+$('.random-image').empty();
+let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
+rdmImgUrl = './assets/images/' + rmdImageSelection
+const funnyImage = document.createElement('img');
+funnyImage.setAttribute('alt', 'Funny Image');
+funnyImage.setAttribute('id', 'funnyImage');
+funnyImage.setAttribute('src', rdmImgUrl);
+$('.random-image').append(funnyImage);
 }
 
 
