@@ -25,6 +25,7 @@ rdmImageCol.append(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
 
     // rdm image function here
+    // I searched royalty free images from https://www.pickpik.com/search?q=funny&sort=aesthetic&page=2 and added some more to the images folder
 function genRdmImage(){
 $('.random-image').empty();
 let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
@@ -71,8 +72,34 @@ let boredDisplay = function (data) {
 
 // roboHash API functions 
 const roboHash = function (event){
-  $(splash).empty();
+  let apiURL = `https://robohash.org/`;
+  // Not sure if this is the API site but couldnt find any documentation
+  
+  fetch(apiURL)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function (data) {
+            console.log(data);
+    
+      //this empties the contents of the row
+      $(splash).empty();
+      roboHashDisplay(data);
+    })
+};
 
+let roboHashDisplay = function (data) { 
+  const activity = data.activity;
+  const participants = data.participants;
+  const type = data.type;
+  const container = $("<div>")
+      container.html(`<h3>Create Your Own Robot Image</h3>
+      <p>Input Any Text to Generate; ${inputText}</p>`)
+      // Can append ?set=set2 to Image's URLs to generate Random monsters as an additional option
+
+      // Not sure if this section below is in addition to or in replace of the container const above??
   const submitBtn = document.createElement('button');
   submitBtn.setAttribute('id', 'submitBtn');
   submitBtn.classList.add('button');
