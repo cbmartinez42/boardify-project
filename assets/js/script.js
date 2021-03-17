@@ -15,7 +15,7 @@ const splash = $(".splash");
 
 
 // random image for right column
-const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg']
+const rdmImages = ['mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg',]
 
 const rdmImageBtn = document.createElement('button');
     rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
@@ -26,7 +26,8 @@ rdmImageBtn.addEventListener('click', genRdmImage);
 
     // rdm image function here
     // I searched royalty free images from https://www.pickpik.com/search?q=funny&sort=aesthetic&page=2 and added some more to the images folder
-function genRdmImage(){
+    // I (sdb) am not attached to any of these images, delete away if (any of) you like
+    function genRdmImage(){
 $('.random-image').empty();
 let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
 rdmImgUrl = './assets/images/' + rmdImageSelection
