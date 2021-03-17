@@ -77,19 +77,19 @@ const roboHash = function (event){
   let apiURL = 'https://robohash.org/' + userInput;
   // Not sure if this is the API site, couldnt find any documentation
   
-  fetch(apiURL)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      }
-    })
-    .then(function (data) {
-            console.log(data);
+  // fetch(apiURL)
+  //   .then(function (response) {
+  //     if (response.ok) {
+  //       return response.json();
+  //     }
+  //   })
+  //   .then(function (data) {
+  //           console.log(data);
     
-      //this empties the contents of the row
+  //     //this empties the contents of the row
       $(splash).empty();
-      roboHashDisplay(data);
-    });
+      roboHashDisplay(); // data to be added later
+  //   });
 };
 
 let roboHashDisplay = function (data) { 
