@@ -39,6 +39,10 @@ h3 {
     margin-bottom: 1.5em;
 }
 
+.field-label {
+    justify-self: left;  /* grrrrrr */
+}
+
 #funnyImage {
     max-height: 280px;
     width: auto;
@@ -48,6 +52,7 @@ h3 {
     justify-content: center; /* why isn't this working?? */
     margin-bottom: 1.5em;
     margin-top: 1.5em;
+    align-self: flex-end;
 }
 
 .image-col {
