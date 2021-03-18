@@ -96,3 +96,7 @@ p {
 .avatar-image {
     justify-content: right!important;
 }
+
+.linkedIn {
+    justify-self: center;
+}

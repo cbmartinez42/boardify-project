@@ -291,7 +291,7 @@ function modalErrorAlert(error) {
 // eventlisteners go here
 document.getElementById('bored').addEventListener('click', bored);
 document.getElementById('roboHash').addEventListener('click', roboHash);
-document.getElementById('superHero').addEventListener('click', superHero);
+// document.getElementById('superHero').addEventListener('click', superHero);
 document.getElementById('catFacts').addEventListener('click', catFacts);
 document.getElementById('randomJokes').addEventListener('click', randomJokes);
 
