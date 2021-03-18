@@ -41,21 +41,25 @@ function genRdmImage() {
 
 // // bored API functions
 let bored = function (event) {
-  let apiURL = 'http://www.boredapi.com/api/activity/';
 
-  fetch(apiURL)
+  $(splash).empty();
+
+    let apiURL = 'http://www.boredapi.com/api/activity/';
+  
+    fetch(apiURL)
     .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      }
+        if (response.ok) {
+        response.json().then(function (data) {
+          boredDisplay(data);
+        });
+        } else {
+        alert('Error: ' + response.statusText);  // need to swap out
+        }
     })
-    .then(function (data) {
-      console.log(data);
-      //this empties the contents of the row
-      $(splash).empty();
-      boredDisplay(data);
-    })
-};
+    .catch(function (error) {
+        alert('Unable to connect to Facts Database');   // need to swap out
+    });
+  };
 
 let boredDisplay = function (data) {
   const activity = data.activity;
@@ -121,22 +125,29 @@ const roboHash = function (event) {
 
 // // superHero API functions
 let superHero = function (event) {
+
+  $(splash).empty();
+
   let apiURL = 'http://superheroapi.com/api/10224580750642127';
 
   fetch(apiURL)
-    .then(function (response) {
+  .then(function (response) {
       if (response.ok) {
-        return response.json();
+      response.json().then(function (data) {
+        superHeroDisplay(data);
+      });
+      } else {
+      alert('Error: ' + response.statusText);  // need to swap out
       }
-    })
-    .then(function (data) {
-      console.log(data);
-      $(splash).empty();
-      superHeroDisplay(data);
-    });
+
+  })
+  .catch(function (error) {
+      alert('Unable to connect to Facts Database');   // need to swap out
+  });
 };
 
-let superHeroDisplay = function (data) {
+
+let superHeroDisplay = function (data) { 
   const id = data.id;
   const biography = data.biography;
   const characterImage = data.characterImage;
@@ -173,25 +184,37 @@ let catFacts = function (event) {
     });
 };
 
-let catFactsDisplay = function (data) {
-  const facts = data.facts;
+
+let catFactsDisplay = function (data) { 
+  splash.empty();
+  const facts = data.text;
+
   // const container = $("<div>")
   //     .html(`<h3>Click Fur a Cat Fact!</h3>`)
 
 
+  const catFact = document.createElement('p');
+  const catFactText = document.createTextNode(facts)
+  catFact.appendChild(catFactText)
   const submitBtn = document.createElement('button');
-  submitBtn.setAttribute('id', 'submitBtn');
+   submitBtn.setAttribute('id', 'newCatFact');
   submitBtn.classList.add('button');
-  const btnText = document.createTextNode('Get a cat fact!');
-  submitBtn.appendChild(btnText);
+
+  const btnText = document.createTextNode('Click Fur a New Cat Fact!');
+    submitBtn.appendChild(btnText);
+  const catMeme = document.createElement('img');
+  catMeme.setAttribute('src', './assets/images/cats-liquids.jpg')
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Cats...the other state of matter');
-  title.appendChild(titleText);
+    title.appendChild(titleText);
+    title.appendChild(catMeme);
   const body = document.createElement('div');
   body.classList.add('catBody');
-  body.appendChild(title);
-  body.append(inputDiv);
-  body.appendChild(submitBtn);
+    body.appendChild(title);
+    
+    body.appendChild(submitBtn);
+    body.appendChild(catFact)
+
   const col = document.createElement('div');
   col.classList.add('column');
   col.classList.add('catCol');
@@ -199,39 +222,47 @@ let catFactsDisplay = function (data) {
   const div = document.createElement('div');
   div.classList.add('container');
   div.classList.add('catCont');
-  div.appendChild(col);
-  splash.append(div);
+
+    div.appendChild(col);
+    splash.append(div);
+  
+  document.getElementById('newCatFact').addEventListener('click', catFacts);
 
 }
-// Is this all the API provides??
 // end cat facts API function
 
 
 // random jokes API function
 let randomJokes = function (event) {
-  let apiURL = 'https://api.icndb.com';
+  
+  $(splash).empty();
+
+  let apiURL = 'https://official-joke-api.appspot.com/jokes/random';
 
   fetch(apiURL)
-    .then(function (response) {
+  .then(function (response) {
       if (response.ok) {
-        return response.json();
+      response.json().then(function (data) {
+        randomJokesDisplay(data);
+      });
+      } else {
+      alert('Error: ' + response.statusText);  // need to swap out
       }
-    })
-    .then(function (data) {
-      console.log(data);
-      $(splash).empty();
-      randomJokesDisplay(data);
-    })
+
+  })
+  .catch(function (error) {
+      alert('Unable to connect to Facts Database');   // need to swap out
+  });
 };
 
-let randomJokesDisplay = function (data) {
-  const category = data.category;
-  const value = data.value;
-  const joke = data.joke;
+let randomJokesDisplay = function (data) { 
+  const setup = data.setup;
+  const punchline = data.punchline;
   const container = $("<div>")
-    .html(`<h3>Ready for a Laugh?!</h3>
-      <p>How Many Jokes Can You Handle? ${value}</p>
-      <p>Here goes funny... ; ${joke}</p>`)
+      .html(`<h3>Ready for a Laugh?!</h3>
+      <p>Are you ready to laugh? ${setup}</p>
+      <p>Here goes funny... ; ${punchline}</p>`)
+
 }
 // there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
 // end random jokes API function
@@ -255,3 +286,4 @@ document.querySelector('.modal-close').addEventListener('click', function () {
   let modalAlert = document.getElementById('modal')
   modalAlert.classList.remove('is-active')
 })
+
