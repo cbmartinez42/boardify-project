@@ -165,8 +165,8 @@ let superHeroDisplay = function (data) {
 
 // cat facts API function
 let catFacts = function (event) {
-  // let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
-  let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
+  let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
+  // let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
   fetch(apiURL)
     .then(function (response) {
@@ -245,12 +245,12 @@ let randomJokes = function (event) {
         randomJokesDisplay(data);
       });
       } else {
-      modalErrorAlert('Error: ' + response.statusText);  // need to swap out
+      modalErrorAlert('Error: ' + response.statusText);  
       }
 
   })
   .catch(function (error) {
-      modalErrorAlert('Unable to connect to Joke Database');   // need to swap out
+      modalErrorAlert('Unable to connect to Joke Database');  
   });
 };
 
