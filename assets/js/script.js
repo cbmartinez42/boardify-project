@@ -53,11 +53,11 @@ let bored = function (event) {
           boredDisplay(data);
         });
         } else {
-        alert('Error: ' + response.statusText);  // need to swap out
+        modalErrorAlert('Error: ' + response.statusText);  
         }
     })
     .catch(function (error) {
-        alert('Unable to connect to Facts Database');   // need to swap out
+        modalErrorAlert('Unable to connect to Bored Database'); 
     });
   };
 
@@ -137,12 +137,12 @@ let superHero = function (event) {
         superHeroDisplay(data);
       });
       } else {
-      alert('Error: ' + response.statusText);  // need to swap out
+      modalErrorAlert('Error: ' + response.statusText);  
       }
 
   })
   .catch(function (error) {
-      alert('Unable to connect to Facts Database');   // need to swap out
+      modalErrorAlert('Unable to connect to Facts Database');
   });
 };
 
@@ -166,7 +166,7 @@ let superHeroDisplay = function (data) {
 // cat facts API function
 let catFacts = function (event) {
   let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
-  
+  // let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
   fetch(apiURL)
     .then(function (response) {
@@ -175,12 +175,11 @@ let catFacts = function (event) {
           catFactsDisplay(data);
         });
       } else {
-        alert('Error: ' + response.statusText); // need to swap out
+        modalErrorAlert('Error: ' + response.statusText); 
       }
     })
     .catch(function (error) {
-      // alert('Unable to connect to Facts Database');   // need to swap out
-      modalCantConnect('Unable to connect to Facts Database');
+      modalErrorAlert('Unable to connect to Facts Database');
     });
 };
 
@@ -246,12 +245,12 @@ let randomJokes = function (event) {
         randomJokesDisplay(data);
       });
       } else {
-      alert('Error: ' + response.statusText);  // need to swap out
+      modalErrorAlert('Error: ' + response.statusText);  
       }
 
   })
   .catch(function (error) {
-      alert('Unable to connect to Facts Database');   // need to swap out
+      modalErrorAlert('Unable to connect to Joke Database');  
   });
 };
 
@@ -269,9 +268,9 @@ let randomJokesDisplay = function (data) {
 
 // 'Unable to Connect Modal goes here'
 
-function modalCantConnect(error) {
+function modalErrorAlert(error) {
   let modalAlert = document.getElementById('modal')
-  document.querySelector('.modal-content').textContent = error;
+  document.querySelector('.modal-card-body').textContent = error;
   modalAlert.classList.add('is-active')
 
 }
@@ -282,8 +281,19 @@ document.getElementById('roboHash').addEventListener('click', roboHash);
 document.getElementById('superHero').addEventListener('click', superHero);
 document.getElementById('catFacts').addEventListener('click', catFacts);
 document.getElementById('randomJokes').addEventListener('click', randomJokes);
-document.querySelector('.modal-close').addEventListener('click', function () {
+
+
+
+
+// modal event listeners for closing the alert box
+//close button in top-right of box
+document.querySelector('.delete').addEventListener('click', function () {
   let modalAlert = document.getElementById('modal')
   modalAlert.classList.remove('is-active')
 })
+//close button in the bottom left
+document.querySelector('.button.is-success').addEventListener('click', function (){
+  let modalAlert = document.getElementById('modal')
+  modalAlert.classList.remove('is-active')
 
+})
