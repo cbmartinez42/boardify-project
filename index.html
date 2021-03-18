@@ -13,8 +13,7 @@
 
     <section class="hero is-info">
         <div class="hero-body">
-        <img src="./assets/images/mattwoman.jpg" alt="Mattwoman" width="200" height="160">
-          <h1 class="title">
+                <h1 class="title">
             Boredify!
           </h1>
           <p class="subtitle">
@@ -27,7 +26,7 @@
     <!-- sidebar for favorites -->
     <section class="section">
       <div class="columns">
-          <div class="column is-one-quarter favorites">
+          <div class="column is-one-fifth favorites">
             <h3>Favorites</h3>
                <ul>
                 <li>
@@ -50,30 +49,43 @@
 
 
         <!-- main splash page -->
-        <div class="column is-half splash">
+        <div class="column is-half splash ">
             <h3>Main body</h3>
             <ul>
                 <li>
-                  Cat facts - Want to know more about cats? Get a random cat fact here!
+                  <div class="field is-horizontal">
+                    <button class="button is-rounded" id="catFacts">Here kitty kitty!</button> 
+                    <p class="field-label">Want to know more about cats? This is the place for you! </p>
+                    </div> 
                 </li>
                 <li>
-                  Bored API - Get random activity to try to break the borednessocity!
+                  <button class="button is-rounded" id="bored">Bored Activity</button>
                 </li>
                 <li>
-                  RobotHash - Enter any text or number for a randomly generated robot, alien, monster, etc.
+                  <div class="field is-horizontal">
+                  <button class="button is-rounded" id="roboHash">RoboHash</button> 
+                  <p class="field-label">Enter any text or number for a randomly generated robot, alien, monster and more! Who knows what you'll get!</p>
+                  </div>    
                 </li>
                 <li>
-                  Random Jokes - Get a random joke for giggles!
+                  <div class="field is-horizontal">
+                    <button class="button is-rounded" id="randomJokes">Random Jokes!</button> 
+                    <p class="field-label">View random jokes! Tickle your funny bone!</p>
+                    </div> 
                 </li>
                 <li>
-                  Superheroes - Search to learn more about any Superhero or Villain
+                  <div class="field is-horizontal">
+                    <button class="button is-rounded" id="superHero">Superhero database!</button> 
+                    <p class="field-label">Search for just about any Superhero or Villain!</p>
+                    </div> 
                 </li>
               </ul>
         </div>
 
         <!-- random image in right column -->
         <div class="column is-one-quarter image-col" id="rdm-image">
-          <img class="random-image" src="/assets/images/catwoman2.jpg" alt="Random Image">
+          <figure class='random-image image'></figure>
+          <!-- <img class="random-image" src="/assets/images/catwoman2.jpg" alt="Random Image"> -->
         </div>
       </div>
 
@@ -84,10 +96,29 @@
     <footer class="footer">
         <div class="content has-text-centered">
           <p>
-            footer: developed by (what do we want to call ourselves?)
+            Developed by JaKyChSt 2021
           </p>
+          <div class="columns">
+            <div class="column">
+              <p>Jaila Primm</p>
+              <a href='#' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png"></a>
+            </div>
+            <div class="column">
+              <p>Kyle Flores</p>
+              <a href='#' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png"></a>
+            </div>
+            <div class="column">
+              <p>Chris Martinez</p>
+              <a href='https://www.linkedin.com/in/christopher-martinez-6761ba17/' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png"></a>
+            </div>
+            <div class="column">
+              <p>Stacy Martin</p>
+              <a href='#' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png"></a>
+            </div>
+          </div>
         </div>
       </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="./assets/js/script.js"></script>
 </body>
 </html>
