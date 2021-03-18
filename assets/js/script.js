@@ -182,24 +182,32 @@ let catFacts = function (event) {
 };
 
 let catFactsDisplay = function (data) { 
-  const facts = data.facts;
+  splash.empty();
+  const facts = data.text;
   // const container = $("<div>")
   //     .html(`<h3>Click Fur a Cat Fact!</h3>`)
 
 
+  const catFact = document.createElement('p');
+  const catFactText = document.createTextNode(facts)
+  catFact.appendChild(catFactText)
   const submitBtn = document.createElement('button');
-  submitBtn.setAttribute('id', 'submitBtn');
+   submitBtn.setAttribute('id', 'newCatFact');
   submitBtn.classList.add('button');
-  const btnText = document.createTextNode('Get a cat fact!');
+  const btnText = document.createTextNode('Click Fur a New Cat Fact!');
     submitBtn.appendChild(btnText);
+  const catMeme = document.createElement('img');
+  catMeme.setAttribute('src', './assets/images/cats-liquids.jpg')
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Cats...the other state of matter');
     title.appendChild(titleText);
+    title.appendChild(catMeme);
   const body = document.createElement('div');
   body.classList.add('catBody');
     body.appendChild(title);
-    body.append(inputDiv);
+    
     body.appendChild(submitBtn);
+    body.appendChild(catFact)
   const col = document.createElement('div');
     col.classList.add('column');
     col.classList.add('catCol');
@@ -209,7 +217,8 @@ let catFactsDisplay = function (data) {
   div.classList.add('catCont');
     div.appendChild(col);
     splash.append(div);
-    
+  
+  document.getElementById('newCatFact').addEventListener('click', catFacts);
 }
 // end cat facts API function
 
