@@ -198,6 +198,7 @@ let catFactsDisplay = function (data) {
     submitBtn.appendChild(btnText);
   const catMeme = document.createElement('img');
   catMeme.setAttribute('src', './assets/images/cats-liquids.jpg')
+  catMeme.setAttribute('id', 'funnyImage')
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Cats...the other state of matter');
     title.appendChild(titleText);
