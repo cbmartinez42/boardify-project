@@ -131,7 +131,6 @@ const displayAvatar = function (event) {
   userInput.value = "";
 }
 
-
 // end roboHash API functions
 
 
@@ -278,7 +277,6 @@ let randomJokesDisplay = function (data) {
       <p>Here goes funny... ; ${punchline}</p>`)
 
 }
-// there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
 // end random jokes API function
 
 // 'Unable to Connect Modal goes here'
