@@ -42,21 +42,24 @@ function genRdmImage(){
 
 // // bored API functions
 let bored = function (event) {
+  $(splash).empty();
+
     let apiURL = 'http://www.boredapi.com/api/activity/';
   
     fetch(apiURL)
-      .then(function (response) {
+    .then(function (response) {
         if (response.ok) {
-          return response.json();
+        response.json().then(function (data) {
+          boredDisplay(data);
+        });
+        } else {
+        alert('Error: ' + response.statusText);  // need to swap out
         }
-      })
-      .then(function (data) {
-              console.log(data);
-        //this empties the contents of the row
-        $(splash).empty();
-        boredDisplay(data);
-      })
-};
+    })
+    .catch(function (error) {
+        alert('Unable to connect to Facts Database');   // need to swap out
+    });
+  };
 
 let boredDisplay = function (data) { 
     const activity = data.activity;
@@ -122,20 +125,26 @@ const roboHash = function (event){
 
 // // superHero API functions
 let superHero = function (event) {
+
+  $(splash).empty();
+
   let apiURL = 'http://superheroapi.com/api/10224580750642127';
 
   fetch(apiURL)
-    .then(function (response) {
+  .then(function (response) {
       if (response.ok) {
-        return response.json();
+      response.json().then(function (data) {
+        superHeroDisplay(data);
+      });
+      } else {
+      alert('Error: ' + response.statusText);  // need to swap out
       }
-    })
-    .then(function (data) {
-            console.log(data);
-          $(splash).empty();
-      superHeroDisplay(data);
-    });
+  })
+  .catch(function (error) {
+      alert('Unable to connect to Facts Database');   // need to swap out
+  });
 };
+
 
 let superHeroDisplay = function (data) { 
   const id = data.id;
@@ -202,35 +211,38 @@ let catFactsDisplay = function (data) {
     splash.append(div);
     
 }
-// Is this all the API provides??
 // end cat facts API function
 
 
 // random jokes API function
 let randomJokes = function (event) {
-  let apiURL = 'https://api.icndb.com';
+  
+  $(splash).empty();
+
+  let apiURL = 'https://official-joke-api.appspot.com/jokes/random';
 
   fetch(apiURL)
-    .then(function (response) {
+  .then(function (response) {
       if (response.ok) {
-        return response.json();
+      response.json().then(function (data) {
+        randomJokesDisplay(data);
+      });
+      } else {
+      alert('Error: ' + response.statusText);  // need to swap out
       }
-    })
-    .then(function (data) {
-            console.log(data);
-          $(splash).empty();
-      randomJokesDisplay(data);
-    })
+  })
+  .catch(function (error) {
+      alert('Unable to connect to Facts Database');   // need to swap out
+  });
 };
 
 let randomJokesDisplay = function (data) { 
-  const category = data.category;
-  const value = data.value;
-  const joke = data.joke;
+  const setup = data.setup;
+  const punchline = data.punchline;
   const container = $("<div>")
       .html(`<h3>Ready for a Laugh?!</h3>
-      <p>How Many Jokes Can You Handle? ${value}</p>
-      <p>Here goes funny... ; ${joke}</p>`)
+      <p>Are you ready to laugh? ${setup}</p>
+      <p>Here goes funny... ; ${punchline}</p>`)
 }
 // there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
 // end random jokes API function
