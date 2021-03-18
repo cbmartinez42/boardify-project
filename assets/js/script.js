@@ -127,9 +127,9 @@ const roboHash = function (event) {
 let superHero = function (event) {
 
   $(splash).empty();
-
-  let apiURL = 'http://superheroapi.com/api/10224580750642127';
-
+  // let userInput = 
+  let apiURL = 'https://superheroapi.com/api/10224580750642127/search/';
+  // concatenate the userInput to the end of the API call 
   fetch(apiURL)
   .then(function (response) {
       if (response.ok) {
@@ -263,7 +263,6 @@ let randomJokesDisplay = function (data) {
       <p>Here goes funny... ; ${punchline}</p>`)
 
 }
-// there are a lot of joke APIs, is this the one we want?  If so delete others off of readme
 // end random jokes API function
 
 // 'Unable to Connect Modal goes here'
