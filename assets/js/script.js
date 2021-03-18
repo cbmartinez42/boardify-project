@@ -82,17 +82,21 @@ const roboHash = function (event){
   submitBtn.classList.add('button');
   const btnText = document.createTextNode('Get your AVATAR!');
     submitBtn.appendChild(btnText);
-  const inputDiv = $('<div>');
-    inputDiv.addClass('control');
+    console.log(submitBtn)
+  const inputDiv = document.createElement('div');
+    inputDiv.classList.add('control');
   const input = document.createElement('input');
+  console.log(input)
   input.setAttribute('class', 'input user-input');
   input.setAttribute('type', 'text');
   input.setAttribute('placeholder', 'Enter your random text or numbers here!');
     // .attr({'class':'input', 'type':'text', 'placeholder':'Enter your random text or numbers here!'});
     inputDiv.append(input);
+    console.log(input)
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Create your new AVATAR!');
     title.appendChild(titleText);
+    console.log(title)
   const body = document.createElement('div');
   body.classList.add('roboBody');
     body.appendChild(title);
@@ -170,8 +174,8 @@ let catFacts = function (event) {
 
 let catFactsDisplay = function (data) { 
   const facts = data.facts;
-  const container = $("<div>")
-      .html(`<h3>Click Fur a Cat Fact!</h3>`)
+  // const container = $("<div>")
+  //     .html(`<h3>Click Fur a Cat Fact!</h3>`)
 
 
   const submitBtn = document.createElement('button');
@@ -179,29 +183,27 @@ let catFactsDisplay = function (data) {
   submitBtn.classList.add('button');
   const btnText = document.createTextNode('Get a cat fact!');
     submitBtn.appendChild(btnText);
-  
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Cats...the other state of matter');
     title.appendChild(titleText);
   const body = document.createElement('div');
-  body.classList.add('roboBody');
+  body.classList.add('catBody');
     body.appendChild(title);
     body.append(inputDiv);
     body.appendChild(submitBtn);
   const col = document.createElement('div');
     col.classList.add('column');
-    col.classList.add('roboCol');
+    col.classList.add('catCol');
     col.appendChild(body);
   const div = document.createElement('div');
   div.classList.add('container');
-  div.classList.add('roboCont');
+  div.classList.add('catCont');
     div.appendChild(col);
     splash.append(div);
     
 }
 // Is this all the API provides??
 // end cat facts API function
-
 
 
 // random jokes API function
