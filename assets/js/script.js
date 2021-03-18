@@ -80,85 +80,97 @@ const roboHash = function (event) {
   //this empties the contents of the row
   $(splash).empty();
 
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('img-container')
   const submitBtn = document.createElement('button');
-  submitBtn.setAttribute('id', 'submitBtn');
-  submitBtn.classList.add('button');
+    submitBtn.setAttribute('id', 'submitBtn');
+    submitBtn.classList.add('button');
+  submitBtn.appendChild(imgContainer)
   const btnText = document.createTextNode('Get your AVATAR!');
   submitBtn.appendChild(btnText);
-  console.log(submitBtn)
   const inputDiv = document.createElement('div');
-  inputDiv.classList.add('control');
+    inputDiv.classList.add('control');
   const input = document.createElement('input');
-  console.log(input)
-  input.setAttribute('class', 'input user-input');
-  input.setAttribute('type', 'text');
-  input.setAttribute('placeholder', 'Enter your random text or numbers here!');
-  // .attr({'class':'input', 'type':'text', 'placeholder':'Enter your random text or numbers here!'});
+    input.setAttribute('class', 'input user-input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('placeholder', 'Enter your random text or numbers here!');
   inputDiv.append(input);
-  console.log(input)
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Create your new AVATAR!');
   title.appendChild(titleText);
-  console.log(title)
   const body = document.createElement('div');
-  body.classList.add('roboBody');
+    body.classList.add('roboBody');
   body.appendChild(title);
   body.append(inputDiv);
   body.appendChild(submitBtn);
   const col = document.createElement('div');
-  col.classList.add('column');
-  col.classList.add('roboCol');
+    col.classList.add('column');
+    col.classList.add('roboCol');
   col.appendChild(body);
   const div = document.createElement('div');
-  div.classList.add('container');
-  div.classList.add('roboCont');
+   div.classList.add('container');
+    div.classList.add('roboCont');
   div.appendChild(col);
   splash.append(div);
 
-  const userInput = $('.user-input')
+  document.getElementById('submitBtn').addEventListener('click', displayAvatar);
+}
+
+const displayAvatar = function (event) {
+  const imgContainer = $('.img-container');
+  const userInput = document.getElementsByClassName('user-input');
+  imgContainer.empty();
   let apiURL = 'https://robohash.org/' + userInput;
+  
   const roboHashImage = document.createElement('img')
   roboHashImage.setAttribute('src', apiURL)
+  roboHashImage.setAttribute('class', 'avatar-image')
+  const avatarDiv = document.createElement('div')
+  avatarDiv.appendChild(roboHashImage)
+  imgContainer.append(avatarDiv)
+  userInput.value = "";
 }
+
+
 // end roboHash API functions
 
 
 // // superHero API functions
-let superHero = function (event) {
+// let superHero = function (event) {
 
-  $(splash).empty();
+//   $(splash).empty();
 
-  let apiURL = 'http://superheroapi.com/api/10224580750642127';
+//   let apiURL = 'http://superheroapi.com/api/10224580750642127';
 
-  fetch(apiURL)
-  .then(function (response) {
-      if (response.ok) {
-      response.json().then(function (data) {
-        superHeroDisplay(data);
-      });
-      } else {
-      modalErrorAlert('Error: ' + response.statusText);  
-      }
+//   fetch(apiURL)
+//   .then(function (response) {
+//       if (response.ok) {
+//       response.json().then(function (data) {
+//         superHeroDisplay(data);
+//       });
+//       } else {
+//       modalErrorAlert('Error: ' + response.statusText);  
+//       }
 
-  })
-  .catch(function (error) {
-      modalErrorAlert('Unable to connect to Facts Database');
-  });
-};
+//   })
+//   .catch(function (error) {
+//       modalErrorAlert('Unable to connect to Facts Database');
+//   });
+// };
 
 
-let superHeroDisplay = function (data) { 
-  const id = data.id;
-  const biography = data.biography;
-  const characterImage = data.characterImage;
-  const work = data.work;
-  const container = $("<div>")
-    .html(`<h3>Superhero Superfun, Check Here</h3>
-      <p>${id}</p>
-      <p>Characters Biography; ${biography}</p>
-      <img>Superhero Image; ${characterImage}</img>
-      <p>Character's Work Occupation and Operation Base;  ${work}</p>`);
-};
+// let superHeroDisplay = function (data) { 
+//   const id = data.id;
+//   const biography = data.biography;
+//   const characterImage = data.characterImage;
+//   const work = data.work;
+//   const container = $("<div>")
+//     .html(`<h3>Superhero Superfun, Check Here</h3>
+//       <p>${id}</p>
+//       <p>Characters Biography; ${biography}</p>
+//       <img>Superhero Image; ${characterImage}</img>
+//       <p>Character's Work Occupation and Operation Base;  ${work}</p>`);
+// };
 // end superHero API function
 
 
@@ -203,11 +215,13 @@ let catFactsDisplay = function (data) {
     submitBtn.appendChild(btnText);
   const catMeme = document.createElement('img');
   catMeme.setAttribute('src', './assets/images/cats-liquids.jpg')
-  catMeme.setAttribute('id', 'funnyImage')
+  catMeme.setAttribute('id', 'cat-meme')
+  const catMemeDiv = document.createElement('div');
+  catMemeDiv.appendChild(catMeme);
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Cats...the other state of matter');
     title.appendChild(titleText);
-    title.appendChild(catMeme);
+    title.appendChild(catMemeDiv);
   const body = document.createElement('div');
   body.classList.add('catBody');
     body.appendChild(title);
