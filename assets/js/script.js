@@ -154,8 +154,9 @@ let superHeroDisplay = function (data) {
 
 // cat facts API function
 let catFacts = function (event) {
-  let apiURL = 'http://cat-fact.herapp.com/facts/random';
-
+  let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
+  
+  
   fetch(apiURL)
     .then(function (response) {
       if (response.ok) {
