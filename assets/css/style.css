@@ -9,25 +9,28 @@ dark brown #140d05
 light tan #E5D3B3
 greenish #90ee90*/
 
+:root {
+    background-color: #140d05;
+}
 
 
 body {
     font-size: 1.5rem;
     font-size: 95%;
-    background-color: white;
+    /* background-color: #140d05; */
 }
 
 .hero.is-info .title {
     font-size: 3rem;
     color: #FDA172;
     text-align: left;
-    font-family: BadTyp Regular;
+    /* font-family: BadTyp Regular; */
 }
 
 .hero.is-info .subtitle {
     color: #FDA172;
     text-align: right;
-    font-family: BadTyp Regular;
+    /* font-family: BadTyp Regular; */
     margin-bottom: 0px;
 }
 
@@ -56,7 +59,7 @@ h3 {
 p {
     align-self: center;
     /* margin-left: 2em; */
-    /* margin-bottom: 2rem; */
+    margin-bottom: 2rem;
     padding: 15px;
     vertical-align:auto;
 }
@@ -64,13 +67,17 @@ p {
     /* background-color: rgb(22, 236, 236); */
     text-align: center;
     height: 330px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .hero-body{
-    background-image: url('/assets/images/meltingClockExpanded.jpg');
+    background-image: url('../images/meltingClockExpanded.jpg');
     background-position: center;
 }
 
+.section {
+    padding-top: .75rem;
+}
 .favorites {
     background-color: #140d05;
     margin-left: 2rem;
@@ -81,7 +88,7 @@ p {
 }
 
 .splash {
-    background-color: #bcf5bc;
+    background-color: #DEC373;
 }
 /* 
 .splash > ul > li {
@@ -178,11 +185,12 @@ p {
 
 .linkedIn {
     justify-self: center;
+    max-height: 1.25rem;
 }
 
 .footer {
-    background-color: white;
+    background-color: #140d05;
     padding: 10px;
-    font-family: BadTyp Regular;
-    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;;
+    margin-bottom: 0px;
 }
