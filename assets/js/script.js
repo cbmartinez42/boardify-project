@@ -52,7 +52,6 @@ let bored = function (event) {
         response.json().then(function (data) {
           boredDisplay(data);
         });
-        //boredDisplay(response);
         } else {
         modalErrorAlert('Error: ' + response.statusText);  
         }
@@ -112,7 +111,6 @@ let boredDisplay = function (data) {
   
   // event listen for a new activity
   document.getElementById('newBoredActivity').addEventListener('click', bored);
-
 }
 // end bored API functions
 
@@ -304,22 +302,72 @@ let randomJokes = function (event) {
       } else {
       modalErrorAlert('Error: ' + response.statusText);  
       }
-
   })
   .catch(function (error) {
       modalErrorAlert('Unable to connect to Joke Database');  
   });
 };
 
-let randomJokesDisplay = function (data) { 
-  const setup = data.setup;
+let randomJokesDisplay = function (data) {
+  // splash.empty();
+  const jokeSetup = data.setup;
   const punchline = data.punchline;
-  const container = $("<div>")
-      .html(`<h3>Ready for a Laugh?!</h3>
-      <p>Are you ready to laugh? ${setup}</p>
-      <p>Here goes funny... ; ${punchline}</p>`)
+  
+  // call the API properties of interest
+  const randomJoke = document.createElement('h1');
+  randomJoke.textContent = jokeSetup;
+  const thePunchline = document.createElement('h2');
+  randomJoke.textContent = punchline;
+
+  // create button
+  const submitBtn = document.createElement('button');
+   submitBtn.setAttribute('id', 'newRandomJoke');
+  submitBtn.classList.add('button');
+  const btnText = document.createTextNode('Want more giggles, click here!');
+    submitBtn.appendChild(btnText);
+
+  // meme
+  const laughterMeme = document.createElement('img');
+  laughterMeme.setAttribute('src', href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhsa4aPuOZrlZLZzth4_cSzrDrVsOoZdzGjA&usqp=CAU')
+  
+  // title text
+  const title = document.createElement('h3');
+  const titleText = document.createTextNode('Ahahahahahahaha');
+    title.appendChild(titleText);
+    title.appendChild(laughterMeme);
+
+  //create a div body element
+  const body = document.createElement('div');
+  body.classList.add('jokeBody');
+
+
+  //append the title, the submit button and the activity to the body
+  body.appendChild(title);
+  body.appendChild(submitBtn);
+  body.appendChild(randomJoke);
+  body.appendChild(thePunchline);
+
+  // creates the column all the api elements fit in after the splash page button is pressed
+  const col = document.createElement('div');
+  col.classList.add('column');
+  col.classList.add('jokeCol');
+  col.appendChild(body);
+  const div = document.createElement('div');
+  div.classList.add('container');
+  div.classList.add('jokeCont');
+
+  //append the elements to the splash page
+    div.appendChild(col);
+    splash.append(div);
+  
+  // event listen for a new activity
+  document.getElementById('newRandomJoke').addEventListener('click', randomJokes);
 
 }
+// end bored API functions
+
+
+
 // end random jokes API function
 
 // 'Unable to Connect Modal goes here'
