@@ -56,7 +56,7 @@ h3 {
 p {
     align-self: center;
     /* margin-left: 2em; */
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     padding: 15px;
     vertical-align:auto;
 }
@@ -88,7 +88,30 @@ p {
     margin-bottom: 1.5em;
 } */
 
+/* ??? can't figure out how to center all buttons */
+.button {
+    justify-content: center;
+}
 
+.jokeBody {
+    font-family: chauncy-pro;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 24pt;
+    padding-bottom: 0px;
+}
+
+.boredBody {
+    font-family: chauncy-pro;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 24pt;
+    padding-bottom: 0px;
+}
 
 .field-label {
     justify-self: left;  /* grrrrrr */

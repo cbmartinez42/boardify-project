@@ -83,8 +83,8 @@ let boredDisplay = function (data) {
   
   // title text
   const title = document.createElement('h3');
-  const titleText = document.createTextNode('Be Warned: I am bored.  This could get dangerous.');
-    title.appendChild(titleText);
+  // const titleText = document.createTextNode('Be Warned: I am bored.  This could get dangerous.');
+  //   title.appendChild(titleText);
     title.appendChild(boredMeme);
 
   //create a div body element
@@ -335,8 +335,8 @@ let randomJokesDisplay = function (data) {
   
   // title text
   const title = document.createElement('h3');
-  const titleText = document.createTextNode('Ahahahahahahaha');
-    title.appendChild(titleText);
+  // const titleText = document.createTextNode('Ahahahahahahaha');
+  //   title.appendChild(titleText);
     title.appendChild(laughterMeme);
 
   //create a div body element
