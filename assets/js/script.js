@@ -52,6 +52,7 @@ let bored = function (event) {
         response.json().then(function (data) {
           boredDisplay(data);
         });
+        //boredDisplay(response);
         } else {
         modalErrorAlert('Error: ' + response.statusText);  
         }
@@ -62,15 +63,57 @@ let bored = function (event) {
   };
 
 let boredDisplay = function (data) {
+  // splash.empty();
   const activity = data.activity;
   const participants = data.participants;
   const type = data.type;
-  const container = $("<div>")
-    .html(`<h3>Try This</h3>
-        <p>${activity}</p>
-        <p>Number of Participants: ${participants}</p>
-        <p>Type of Activity: ${type}</p>`);
-};
+
+  const boredActivity = document.createElement('p');
+  boredActivity.textContent = activity;
+
+  // create button
+  const submitBtn = document.createElement('button');
+   submitBtn.setAttribute('id', 'newBoredActivity');
+  submitBtn.classList.add('button');
+  const btnText = document.createTextNode('Still feeling dull? Click for another suggestion!');
+    submitBtn.appendChild(btnText);
+
+  // meme
+  const boredMeme = document.createElement('img');
+  boredMeme.setAttribute('src', href='https://sayingimages.com/wp-content/uploads/are-you-bored-memes.jpg')
+  
+  // title text
+  const title = document.createElement('h3');
+  const titleText = document.createTextNode('Be Warned: I am bored.  This could get dangerous.');
+    title.appendChild(titleText);
+    title.appendChild(boredMeme);
+
+  //create a div body element
+  const body = document.createElement('div');
+  body.classList.add('boredBody');
+
+  //append the title, the submit button and the activity to the body
+  body.appendChild(title);
+  body.appendChild(submitBtn);
+  body.appendChild(boredActivity)
+
+  // creates the column all the api elements fit in after the splash page button is pressed
+  const col = document.createElement('div');
+  col.classList.add('column');
+  col.classList.add('boredCol');
+  col.appendChild(body);
+  const div = document.createElement('div');
+  div.classList.add('container');
+  div.classList.add('boredCont');
+
+  //append the elements to the splash page
+    div.appendChild(col);
+    splash.append(div);
+  
+  // event listen for a new activity
+  document.getElementById('newBoredActivity').addEventListener('click', bored);
+
+}
 // end bored API functions
 
 
