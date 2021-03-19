@@ -52,6 +52,7 @@ let bored = function (event) {
         response.json().then(function (data) {
           boredDisplay(data);
         });
+        //boredDisplay(response);
         } else {
         modalErrorAlert('Error: ' + response.statusText);  
         }
@@ -66,21 +67,15 @@ let boredDisplay = function (data) {
   const activity = data.activity;
   const participants = data.participants;
   const type = data.type;
-  const container = $("<div>")
-    .html(`<h3>Try This</h3>
-        <p>${activity}</p>
-        <p>Number of Participants: ${participants}</p>
-        <p>Type of Activity: ${type}</p>`);
 
   const boredActivity = document.createElement('p');
-  const boredActivityText = document.createTextNode(bored)
-  boredActivity.appendChild(boredActivityText)
+  boredActivity.textContent = activity;
 
   // create button
   const submitBtn = document.createElement('button');
    submitBtn.setAttribute('id', 'newBoredActivity');
   submitBtn.classList.add('button');
-  const btnText = document.createTextNode('Still feeling dull?  Try another!');
+  const btnText = document.createTextNode('Still feeling dull? Click for another suggestion!');
     submitBtn.appendChild(btnText);
 
   // meme
@@ -102,6 +97,7 @@ let boredDisplay = function (data) {
   body.appendChild(submitBtn);
   body.appendChild(boredActivity)
 
+  // creates the column all the api elements fit in after the splash page button is pressed
   const col = document.createElement('div');
   col.classList.add('column');
   col.classList.add('boredCol');
@@ -115,7 +111,7 @@ let boredDisplay = function (data) {
     splash.append(div);
   
   // event listen for a new activity
-  document.getElementById('newBoredActivity').addEventListener('click', catFacts);
+  document.getElementById('newBoredActivity').addEventListener('click', bored);
 
 }
 // end bored API functions
