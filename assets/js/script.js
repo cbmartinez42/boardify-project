@@ -44,7 +44,7 @@ let bored = function (event) {
 
   $(splash).empty();
 
-    let apiURL = 'http://www.boredapi.com/api/activity/';
+    let apiURL = 'https://www.boredapi.com/api/activity/';
   
     fetch(apiURL)
     .then(function (response) {
