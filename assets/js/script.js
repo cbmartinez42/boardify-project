@@ -314,10 +314,13 @@ let randomJokesDisplay = function (data) {
   const punchline = data.punchline;
   
   // call the API properties of interest
-  const randomJoke = document.createElement('h1');
+  const randomJoke = document.createElement('p');
   randomJoke.textContent = jokeSetup;
-  const thePunchline = document.createElement('h2');
-  randomJoke.textContent = punchline;
+
+  const thePunchline = document.createElement('p');
+  thePunchline.textContent = punchline;
+
+  console.log(randomJoke)
 
   // create button
   const submitBtn = document.createElement('button');
