@@ -10,7 +10,9 @@ light tan #E5D3B3
 greenish #90ee90*/
 
 :root {
-    background-color: #140d05;
+    /* background-color: #140d05; */
+    background-image: url(../images/backgroundpatch2.jpg);
+    background-repeat: repeat;
 }
 
 
@@ -50,6 +52,9 @@ h3 {
 
 .favorites {
     color: #E5D3B3;
+    margin-left: 2rem;
+    background-image: url(../images/backgroundpatch2.jpg);
+    background-repeat: repeat;
 }
 
 .col-header {
@@ -77,10 +82,6 @@ p {
 
 .section {
     padding-top: .75rem;
-}
-.favorites {
-    background-color: #140d05;
-    margin-left: 2rem;
 }
 
 .favorites > ul > li {
@@ -151,9 +152,11 @@ p {
 }
 
 .image-col {
-    background-color: #140d05;
+    /* background-color: #140d05; */
     /* margin-right: 2rem; */
     justify-self: center;
+    background-image: url(../images/backgroundpatch2.jpg);
+    background-repeat: repeat;
 }
 
 /* .image-col > h3 {
@@ -189,11 +192,13 @@ p {
 }
 
 .footer {
-    background-color: #140d05;
+    /* background-color: #140d05; */
     padding: 10px;
     font-family: 'Orbitron', sans-serif;;
     margin-bottom: 0px;
     position: absolute;
     bottom: 0;
     width: 100%;
+    background-image: url(../images/backgroundpatch2.jpg);
+    background-repeat: repeat;
 }
