@@ -62,6 +62,7 @@ let bored = function (event) {
   };
 
 let boredDisplay = function (data) {
+  // splash.empty();
   const activity = data.activity;
   const participants = data.participants;
   const type = data.type;
@@ -70,7 +71,53 @@ let boredDisplay = function (data) {
         <p>${activity}</p>
         <p>Number of Participants: ${participants}</p>
         <p>Type of Activity: ${type}</p>`);
-};
+
+  const boredActivity = document.createElement('p');
+  const boredActivityText = document.createTextNode(bored)
+  boredActivity.appendChild(boredActivityText)
+
+  // create button
+  const submitBtn = document.createElement('button');
+   submitBtn.setAttribute('id', 'newBoredActivity');
+  submitBtn.classList.add('button');
+  const btnText = document.createTextNode('Still feeling dull?  Try another!');
+    submitBtn.appendChild(btnText);
+
+  // meme
+  const boredMeme = document.createElement('img');
+  boredMeme.setAttribute('src', href='https://sayingimages.com/wp-content/uploads/are-you-bored-memes.jpg')
+  
+  // title text
+  const title = document.createElement('h3');
+  const titleText = document.createTextNode('Be Warned: I am bored.  This could get dangerous.');
+    title.appendChild(titleText);
+    title.appendChild(boredMeme);
+
+  //create a div body element
+  const body = document.createElement('div');
+  body.classList.add('boredBody');
+
+  //append the title, the submit button and the activity to the body
+  body.appendChild(title);
+  body.appendChild(submitBtn);
+  body.appendChild(boredActivity)
+
+  const col = document.createElement('div');
+  col.classList.add('column');
+  col.classList.add('boredCol');
+  col.appendChild(body);
+  const div = document.createElement('div');
+  div.classList.add('container');
+  div.classList.add('boredCont');
+
+  //append the elements to the splash page
+    div.appendChild(col);
+    splash.append(div);
+  
+  // event listen for a new activity
+  document.getElementById('newBoredActivity').addEventListener('click', catFacts);
+
+}
 // end bored API functions
 
 
