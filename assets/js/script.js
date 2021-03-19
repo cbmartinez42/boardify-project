@@ -14,7 +14,7 @@ const splash = $(".splash");
 
 
 // random image for right column
-const rdmImages = ['dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg', ]
+const rdmImages = ['duelmonitors.jpg', 'killhuman.jpg', 'homeearly.jpg', 'stare.jpg', 'stormtrooper.jpg', 'vegatables.jpg', 'transmission.jpg', 'dogscared.jpg', 'chickynuggies.jpg', 'beware.jpg', 'adt.jpg', 'palehorse.jpg', 'mistake.jpg', 'replacement.jpg', 'dobby.jpg', 'cathavoc.jpg', 'problemsolving.jpg', 'colorblind.jpg', 'coneshame.jpg', 'llama.jpg', 'longday.jpg', 'gift.jpeg', '418-teapot.jpeg', 'dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg', ]
 
 const rdmImageBtn = document.createElement('button');
 rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
@@ -30,7 +30,7 @@ function genRdmImage() {
   // empty prev random images
   $('.random-image').empty();
   let rmdImageSelection = rdmImages[Math.floor(Math.random() * rdmImages.length)]
-  rdmImgUrl = './assets/images/' + rmdImageSelection
+  rdmImgUrl = './assets/images/random/' + rmdImageSelection
   const funnyImage = document.createElement('img');
   funnyImage.setAttribute('alt', 'Funny Image');
   funnyImage.setAttribute('id', 'funnyImage');
