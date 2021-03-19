@@ -67,7 +67,7 @@ p {
 }
 
 .hero-body{
-    background-image: url('assets/images/meltingClockExpanded.jpg');
+    background-image: url('/assets/images/meltingClockExpanded.jpg');
     background-position: center;
 }
 
