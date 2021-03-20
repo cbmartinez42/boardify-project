@@ -5,12 +5,61 @@ const splash = $(".splash");
 
 
 // favorites in the sidebar
+let lastActivity = 1;
+let activityNames = ['Cat Facts','Bored?','Robot Hash', 'Jokes'];
+// this is where we will push their favorites from localstorage i guess
 
+let cont = document.getElementById('favoriteList')
+
+// create ul element and set attributes
+let newUl = document.createElement('ul')
+newUl.setAttribute('style', 'padding: 5; margin: 5;');
+newUl.setAttribute('id', 'theList');
+
+let favListArr = getFavorites();
+
+for (let i=0; i < favListArr.length ; i++){
+let newLi = document.createElement('li');
+newLi.setAttribute('data-activity', favListArr[i]);
+newLi.innerHTML = activityNames[favListArr[i] -1];
+
+
+newUl.appendChild(newLi);
+}
+
+cont.appendChild(newUl);
 
 // main splash page functionality/api. Do we want to replace the splash page, or just have it pop up with modals?
 
+function getFavorites(){
+  let favoriteResults = [];
+  let localStorageFavorites = localStorage.getItem('favorites')
+  if (!!localStorageFavorites){
+      favoriteResults = JSON.parse(localStorageFavorites);
+  }
+  return favoriteResults;
+
+}
 
 // script to save favorites in localStorage when selected
+function addToFavorites() {
+  let currentFavorites = getFavorites();
+  
+  if(currentFavorites.includes(lastActivity)){
+    return
+  } 
+  currentFavorites.push(lastActivity);
+  localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+
+  let newLi = document.createElement('li');
+newLi.setAttribute('data-activity', lastActivity);
+newLi.innerHTML = activityNames[lastActivity -1];
+
+
+newUl.appendChild(newLi);
+  
+}
+
 
 
 // random image for right column
@@ -63,6 +112,7 @@ let bored = function (event) {
 
 let boredDisplay = function (data) {
   // splash.empty();
+  lastActivity = 2;
   const activity = data.activity;
   const participants = data.participants;
   const type = data.type;
@@ -119,6 +169,7 @@ let boredDisplay = function (data) {
 // roboHash API functions 
 const roboHash = function (event) {
   //this empties the contents of the row
+  lastActivity = 3
   $(splash).empty();
 
   const imgContainer = document.createElement('div');
@@ -217,6 +268,7 @@ const displayAvatar = function (event) {
 
 // cat facts API function
 let catFacts = function (event) {
+  lastActivity = 1;
   // let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
   let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
@@ -237,6 +289,7 @@ let catFacts = function (event) {
 
 
 let catFactsDisplay = function (data) { 
+ 
   splash.empty();
   const facts = data.text;
 
@@ -309,6 +362,8 @@ let randomJokes = function (event) {
 };
 
 let randomJokesDisplay = function (data) {
+
+  lastActivity = 4;
   // splash.empty();
   const jokeSetup = data.setup;
   const punchline = data.punchline;
@@ -379,7 +434,7 @@ function modalErrorAlert(error) {
   let modalAlert = document.getElementById('modal')
   document.querySelector('.modal-card-body').textContent = error;
   modalAlert.classList.add('is-active')
-
+  
 }
 
 
@@ -394,11 +449,7 @@ document.getElementById('randomJokes').addEventListener('click', randomJokes);
 
 
 //Modal event listener to handle user clicking on the close boxes or outside the
-let modalSetInactive = document.querySelectorAll('.closingClick')
-modalSetInactive.forEach(addEventListener('click', function () {
- let modalAlert = document.getElementById('modal')
- modalAlert.classList.remove('is-active')
-}))
+
 
 //close button in top-right of box
 // document.querySelector('.delete').addEventListener('click', function () {
@@ -417,3 +468,36 @@ modalSetInactive.forEach(addEventListener('click', function () {
 //   modalAlert.classList.remove('is-active')
 //   })
 // // this seems a tad redundant -- will look into maybe consolidating this to one function instead of 3
+
+let modalSetInactive = document.querySelectorAll('.closingClick')
+console.log(modalSetInactive);
+modalSetInactive.forEach(el =>
+  {
+    console.log(el);
+    el.addEventListener('click', function () {
+ let modalAlert = document.getElementById('modal')
+ modalAlert.classList.remove('is-active')
+})})
+
+//Clear favorites list
+document.getElementById('clearFavorites').addEventListener('click', function (){
+$('#theList').empty()
+  localStorage.clear();
+// location.reload();
+})
+
+document.getElementById('addtofavoritesList').addEventListener('click',addToFavorites)
+document.getElementById('theList').addEventListener('click', function(e){
+let activityIndex = e.target.dataset.activity;
+
+switch(activityIndex){
+  case '1':
+    catFacts();
+    break;
+  case '2': bored();
+  break;
+  case '3': roboHash();
+  break;
+  case '4': randomJokes();
+}
+})
