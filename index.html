@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Boredify!</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Frijole&family=Orbitron:wght@600&family=Sedgwick+Ave&display=swap" rel="stylesheet">
@@ -15,7 +16,6 @@
   <body>
 
     <!-- header/jumbotron/hero  -->
-
     <section class="hero is-info">
         <div class="hero-body">
           <h1 class="title">
@@ -36,23 +36,11 @@
       <div class="columns">
           <div class="column is-one-fifth favorites">
             <h3 class=col-header>Favorites</h3>
-               <ul>
-                <li>
-                    fav 1
-                </li>
-                <li>
-                    fav 2
-                </li>
-                <li>
-                    fav 3
-                </li>
-                <li>
-                    fav 4
-                </li>
-                <li>
-                    fav 5
-                </li>
-            </ul>
+            <div id  = 'favoriteList'>
+            <!-- list dynamically generates here -->
+            </div>
+            <button class="button is-info is-small is-rounded" id ='addtofavoritesList'>Add to Favorites</button>
+            <button class="button is-info is-small is-rounded" id = 'clearFavorites' >Clear favorites</button>
           </div>
 
 
@@ -61,35 +49,29 @@
             <h3>Boredom Fighting Activities</h3>
             <ul>
                 <li>
-                  <div class="field is-horizontal">
-                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id="catFacts">
+                  <div class="field is-horizontal clock-button" id="catFacts">
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button">
                     <p>Here kitty kitty! Want to know more about cats? This is the place for you!</p>
                   </div> 
                 </li>
                 <li>
-                  <div class="field is-horizontal">
-                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id='bored'>
+                  <div class="field is-horizontal clock-button"  id='bored'>
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button">
                     <p>Bored? Click here for a spontaneous activity to try!</p>
                   </div>
                 </li>
                 <li>
-                  <div class="field is-horizontal">
-                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id='roboHash'>
+                  <div class="field is-horizontal clock-button" id='roboHash'>
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" >
                     <p>RoboHash! Enter any text or number for a randomly generated robot, alien, monster and more!</p>
                   </div>    
                 </li>
                 <li>
-                  <div class="field is-horizontal">
-                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id='randomJokes'>
+                  <div class="field is-horizontal clock-button" id='randomJokes'>
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" >
                     <p>View random jokes! Tickle your funny bone!</p>
                     </div> 
                 </li>
-                <!-- <li>
-                  <div class="field is-horizontal">
-                    <button class="button is-rounded" id="superHero">Superhero database!</button> 
-                    <p class="field-label">Search for just about any Superhero or Villain!</p>
-                    </div> 
-                </li> -->
               </ul>
         </div>
 
@@ -97,26 +79,25 @@
         <div class="column is-one-quarter image-col" id="rdm-image">
           <h3 class=col-header>Be Warned: I am bored. This could get dangerous.</h3>
           <figure class='random-image image'></figure>
-          <!-- <img class="random-image" src="/assets/images/catwoman2.jpg" alt="Random Image"> -->
         </div>
       </div>
 
 
     </section>
-    
+
     <!-- Hidden Modal Container -->
-    <div class="modal" id = 'modal'>
-      <div class="modal-background"></div>
+    <div class="modal" id='modal'>
+      <div class="modal-background closingClick" id='modal-background'></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">Oops! There seems to be a problem!</p>
-          <button class="delete"  aria-label="close"></button>
+          <button class="delete closingClick" id='delete'  aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <!--  Modal Content ... -->
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Okay</button>
+          <button class="button is-success closingClick" id='closeButton'>Okay</button>
 
         </footer>
       </div>
@@ -125,8 +106,8 @@
     <!-- footer -->
     <footer class="footer">
         <div class="content has-text-centered">
-          <p>
-            Developed by JaKyChSt 2021
+          <p class="footer-title">
+            Developed by JaKyChSt 2021 :
           </p>
           <div class="columns">
             <div class="column">
