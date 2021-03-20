@@ -5,13 +5,15 @@ const splash = $(".splash");
 
 
 // favorites in the sidebar
+
+// last activity acts as an id for the activity the user would click on
 let lastActivity = 1;
 let activityNames = ['Cat Facts','Bored?','Robot Hash', 'Jokes'];
-// this is where we will push their favorites from localstorage i guess
 
+// container to hold the favorite list
 let cont = document.getElementById('favoriteList')
 
-// create ul element and set attributes
+// dynamicaly creats the favorites list
 let newUl = document.createElement('ul')
 newUl.setAttribute('style', 'padding: 5; margin: 5;');
 newUl.setAttribute('id', 'theList');
@@ -29,8 +31,8 @@ newUl.appendChild(newLi);
 
 cont.appendChild(newUl);
 
-// main splash page functionality/api. Do we want to replace the splash page, or just have it pop up with modals?
 
+//grabs favorites from local storage
 function getFavorites(){
   let favoriteResults = [];
   let localStorageFavorites = localStorage.getItem('favorites')
@@ -40,6 +42,8 @@ function getFavorites(){
   return favoriteResults;
 
 }
+
+// main splash page functionality/api. Do we want to replace the splash page, or just have it pop up with modals?
 
 // script to save favorites in localStorage when selected
 function addToFavorites() {
@@ -269,8 +273,8 @@ const displayAvatar = function (event) {
 // cat facts API function
 let catFacts = function (event) {
   lastActivity = 1;
-  // let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
-  let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
+  let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
+  // let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
   fetch(apiURL)
     .then(function (response) {
@@ -428,16 +432,13 @@ let randomJokesDisplay = function (data) {
 
 // end random jokes API function
 
-// 'Unable to Connect Modal goes here'
-
+// function to call the modal error alert
 function modalErrorAlert(error) {
   let modalAlert = document.getElementById('modal')
   document.querySelector('.modal-card-body').textContent = error;
   modalAlert.classList.add('is-active')
   
 }
-
-
 
 
 // eventlisteners go here
@@ -447,28 +448,7 @@ document.getElementById('roboHash').addEventListener('click', roboHash);
 document.getElementById('catFacts').addEventListener('click', catFacts);
 document.getElementById('randomJokes').addEventListener('click', randomJokes);
 
-
-//Modal event listener to handle user clicking on the close boxes or outside the
-
-
-//close button in top-right of box
-// document.querySelector('.delete').addEventListener('click', function () {
-//   let modalAlert = document.getElementById('modal')
-//   modalAlert.classList.remove('is-active')
-// })
-// // close button in the bottom left
-// document.querySelector('.button.is-success').addEventListener('click', function (){
-//   let modalAlert = document.getElementById('modal')
-//   modalAlert.classList.remove('is-active')
-
-// })
-// // close modal alert if user clicks outside of the modalalert card
-// document.querySelector('.modal-background').addEventListener('click', function() {
-//   let modalAlert = document.getElementById('modal')
-//   modalAlert.classList.remove('is-active')
-//   })
-// // this seems a tad redundant -- will look into maybe consolidating this to one function instead of 3
-
+//modal event listent to set the card to 'active'
 let modalSetInactive = document.querySelectorAll('.closingClick')
 console.log(modalSetInactive);
 modalSetInactive.forEach(el =>
@@ -479,25 +459,28 @@ modalSetInactive.forEach(el =>
  modalAlert.classList.remove('is-active')
 })})
 
+//modal event listener to set the card to 'inactive'
+document.getElementById('theList').addEventListener('click', function(e){
+  let activityIndex = e.target.dataset.activity;
+  
+  switch(activityIndex){
+    case '1':
+      catFacts();
+      break;
+    case '2': bored();
+    break;
+    case '3': roboHash();
+    break;
+    case '4': randomJokes();
+  }
+  })
+
 //Clear favorites list
 document.getElementById('clearFavorites').addEventListener('click', function (){
 $('#theList').empty()
   localStorage.clear();
-// location.reload();
+
 })
 
+//Add to favorites list
 document.getElementById('addtofavoritesList').addEventListener('click',addToFavorites)
-document.getElementById('theList').addEventListener('click', function(e){
-let activityIndex = e.target.dataset.activity;
-
-switch(activityIndex){
-  case '1':
-    catFacts();
-    break;
-  case '2': bored();
-  break;
-  case '3': roboHash();
-  break;
-  case '4': randomJokes();
-}
-})
