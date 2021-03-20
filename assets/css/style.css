@@ -1,48 +1,30 @@
-/* color options (from melting clock image): 
-cantaloupe #FDA172; 
-spice #7A3803 
-blonde #FEEB75
-dark gray #2b2b2b
-dark rust #2b0601
-bronze #CD7F32
-dark brown #140d05
-light tan #E5D3B3
-greenish #90ee90*/
-
 :root {
-    /* background-color:black; */
     background-image: url(../images/backgroundpatch2.jpg);
     background-repeat: repeat;
-    /* position:absolute; */
-
 }
 
-
-body {
-    /* font-size: 1.5rem; */
-    font-size: 95%;
-    /* background-color: #140d05; */
-    display: block;
-}
-
+/* hero header */
 .hero.is-info .title {
     font-size: 3rem;
     color: #E5D3B3;
     text-align: left;
-    /* font-family: BadTyp Regular; */
 }
 
 .hero.is-info .subtitle {
     color: #E5D3B3;
     text-align: right;
-    /* font-family: BadTyp Regular; */
     margin-bottom: 0px;
 }
-
-h2 {
-    font-size: 2.5rem;
+.hero {
+    text-align: center;
+    height: 420px;
+    font-family: badtyp, sans-serif;
+    text-shadow: 3px 3px black;
+    background-image: url('../images/meltingClockExpanded.jpg');
+    background-position: center;
 }
 
+/* favorites sidebar */
 h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -51,99 +33,48 @@ h3 {
     font-style: normal;
     text-align: center;
     color: #E5D3B3;
-}
-
-.favorites {
-    color: #E5D3B3;
     margin-left: 2rem;
-    background-image: url(../images/backgroundpatch2.jpg);
-    background-repeat: repeat;
 }
 
-.col-header {
-    color: #E5D3B3;
-}
-
+/* API activity descriptions */
 p {
     align-self: center;
-    /* margin-left: 2em; */
     margin-bottom: .5rem;
     padding: 15px;
     vertical-align:auto;
     color: #E5D3B3;
 }
-.hero {
-    text-align: center;
-    height: 370px;
-    font-family: badtyp, sans-serif;
-}
 
-.hero-body{
-    background-image: url('../images/meltingClockExpanded.jpg');
-    /* height: 400px; */
-    background-position: center;
-}
-
+/* favorites content */
 .section {
     padding-top: none;
     margin: none;
-    background-image: url(../images/backgroundpatch2.jpg);
-    background-repeat: repeat;
     text-align: center;
     justify-items: center;
     display: block;
 }
-.favorites {
-    /* background-color: #140d05; */
-    margin-left: 2rem;
-}
 
-.favorites > ul > li {
-    margin-bottom: 1.5em;
-}
-
-.splash {
-    /* background-color: #020804; */
-    position: relative;
-}
-/* 
-.splash > ul > li {
-    margin-bottom: 1.5em;
-} */
-
-/* ??? can't figure out how to center all buttons */
-.button {
-    justify-content: center;
-}
-
-.jokeBody {
+.apiBody {
     font-family: chauncy-pro;
     font-weight: 400;
     font-style: normal;
-    text-align: center;
+    text-align: left;
     color: #E5D3B3;
     font-size: 24pt;
     padding-bottom: 0px;
 }
 
-.boredBody {
-    font-family: chauncy-pro;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    color: #E5D3B3;
-    font-size: 24pt;
-    padding-bottom: 0px;
+#funnyImage {
+    max-height: 280px;
+    width: auto;
 }
-
-
 
 .clock-button{
     max-height: 70px;
     margin-bottom: .5rem;
-    /* vertical-align:20px; */
     display: block;
     padding: 0;
+    float: left;
 }
 
 .clock-button:hover {
@@ -153,56 +84,28 @@ p {
     font-size: 110%;
 }
 
-#funnyImage {
-    max-height: 280px;
-    width: auto;
-}
-
-.random-image-btn {
-    /* justify-content: center; why isn't this working?? */
-    margin-bottom: 1.5em;
-    margin-top: 1.5em;
-    /* align-self:center; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
 .button.is-info {
-    background-color: #7A3803;
-    /* display:grid; */
+    background-color: #661c00;
     justify-content: center;
     align-items: center;
+    font-size: 12pt;
+    margin: 10pt;
 }
-
-.image-col {
-    /* background-color: #140d05; */
-    /* margin-right: 2rem; */
-    justify-self: center;
-    background-image: url(../images/backgroundpatch2.jpg);
-    background-repeat: repeat;
- }
-
 
 #cat-meme {
     max-height: 200px;
+    margin-top: 10pt;
 }
 
-.catBody > p {
-    font-size: 30px;
-}
-
-.image > img {
-    max-width: 300px!important;
-    margin-left: auto;
-    margin-right: auto;
+#bored-meme {
+    max-height: 400px;
 }
 
 #rdm-image {
     display: flex;
     flex-direction: column;
     align-items: center;
+    clear:both;
 }
 
 .linkedIn {
@@ -215,11 +118,16 @@ p {
     font-family: 'Orbitron', sans-serif;
     margin-top: auto;
     margin-bottom: 0px;
-    /* position: fixed; */
     bottom: 0;
     left: 0;
     width: 100%;
-    background-image: url(../images/backgroundpatch2.jpg);
-    background-repeat: repeat;
     display: block;
+    background-color: black;
+    border-top-style: solid;
+    border-top-color: gray;
+}
+
+.footer-title {
+    text-align: left;
+    margin-left: 50px;
 }

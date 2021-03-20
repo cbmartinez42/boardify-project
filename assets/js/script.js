@@ -2,10 +2,6 @@
 const rdmImageCol = document.getElementById('rdm-image');
 const splash = $(".splash");
 
-
-
-// favorites in the sidebar
-
 // last activity acts as an id for the activity the user would click on
 let lastActivity = 1;
 let activityNames = ['Cat Facts','Bored?','Robot Hash', 'Jokes'];
@@ -24,13 +20,10 @@ for (let i=0; i < favListArr.length ; i++){
 let newLi = document.createElement('li');
 newLi.setAttribute('data-activity', favListArr[i]);
 newLi.innerHTML = activityNames[favListArr[i] -1];
-
-
 newUl.appendChild(newLi);
 }
 
 cont.appendChild(newUl);
-
 
 //grabs favorites from local storage
 function getFavorites(){
@@ -40,10 +33,7 @@ function getFavorites(){
       favoriteResults = JSON.parse(localStorageFavorites);
   }
   return favoriteResults;
-
 }
-
-// main splash page functionality/api. Do we want to replace the splash page, or just have it pop up with modals?
 
 // script to save favorites in localStorage when selected
 function addToFavorites() {
@@ -58,27 +48,18 @@ function addToFavorites() {
   let newLi = document.createElement('li');
 newLi.setAttribute('data-activity', lastActivity);
 newLi.innerHTML = activityNames[lastActivity -1];
-
-
 newUl.appendChild(newLi);
-  
 }
 
-
-
-// random image for right column
+// random image generator for right column
 const rdmImages = ['duelmonitors.jpg', 'killhuman.jpg', 'homeearly.jpg', 'stare.jpg', 'stormtrooper.jpg', 'vegatables.jpg', 'transmission.jpg', 'dogscared.jpg', 'chickynuggies.jpg', 'beware.jpg', 'adt.jpg', 'palehorse.jpg', 'mistake.jpg', 'replacement.jpg', 'dobby.jpg', 'cathavoc.jpg', 'problemsolving.jpg', 'colorblind.jpg', 'coneshame.jpg', 'llama.jpg', 'longday.jpg', 'gift.jpeg', '418-teapot.jpeg', 'dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg', ]
-
 const rdmImageBtn = document.createElement('button');
 rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
 rdmImageBtn.setAttribute('id', 'randomImageBtn');
 rdmImageBtn.textContent = ("Click here for a surprise!");
 rdmImageCol.append(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
-
 // rdm image function here
-// I searched royalty free images from https://www.pickpik.com/search?q=funny&sort=aesthetic&page=2 and added some more to the images folder
-// I (sdb) am not attached to any of these images, delete away if (any of) you like
 function genRdmImage() {
   // empty prev random images
   $('.random-image').empty();
@@ -91,12 +72,20 @@ function genRdmImage() {
   $('.random-image').append(funnyImage);
 }
 
+// create reload page button
+let reloadBtn;
+function createReloadBtn() {
+  reloadBtn = document.createElement('button');
+  reloadBtn.setAttribute('id', 'reloadBtn');
+  reloadBtn.setAttribute("class", 'button is-info is-small is-rounded');
+  const reloadBtnText = document.createTextNode('Back to main page');
+  reloadBtn.appendChild(reloadBtnText);
+  reloadBtn.addEventListener('click', reloadBtnAction);
+  }
 
 // // bored API functions
 let bored = function (event) {
-
   $(splash).empty();
-
     let apiURL = 'https://www.boredapi.com/api/activity/';
   
     fetch(apiURL)
@@ -115,41 +104,36 @@ let bored = function (event) {
   };
 
 let boredDisplay = function (data) {
-  // splash.empty();
   lastActivity = 2;
   const activity = data.activity;
-  const participants = data.participants;
-  const type = data.type;
-
+  // const participants = data.participants;
+  // const type = data.type;
   const boredActivity = document.createElement('p');
   boredActivity.textContent = activity;
-
-  // create button
+  createReloadBtn();
   const submitBtn = document.createElement('button');
    submitBtn.setAttribute('id', 'newBoredActivity');
-  submitBtn.classList.add('button');
-  const btnText = document.createTextNode('Still feeling dull? Click for another suggestion!');
-    submitBtn.appendChild(btnText);
-
+   submitBtn.setAttribute("class", 'button is-info is-small is-rounded');
+  const submitBtnText = document.createTextNode('Still feeling dull? Click for another suggestion!');
+    submitBtn.appendChild(submitBtnText);
   // meme
   const boredMeme = document.createElement('img');
   boredMeme.setAttribute('src', href='https://sayingimages.com/wp-content/uploads/are-you-bored-memes.jpg')
-  
+  boredMeme.setAttribute('id', 'bored-meme')
   // title text
   const title = document.createElement('h3');
   // const titleText = document.createTextNode('Be Warned: I am bored.  This could get dangerous.');
-  //   title.appendChild(titleText);
+  // title.appendChild(titleText);
     title.appendChild(boredMeme);
-
   //create a div body element
   const body = document.createElement('div');
-  body.classList.add('boredBody');
-
+  body.classList.add('apiBody');
   //append the title, the submit button and the activity to the body
   body.appendChild(title);
   body.appendChild(submitBtn);
-  body.appendChild(boredActivity)
-
+  body.appendChild(boredActivity);
+  // const reloadBtn = document.getElementById("reloadBtn");
+  body.appendChild(reloadBtn);
   // creates the column all the api elements fit in after the splash page button is pressed
   const col = document.createElement('div');
   col.classList.add('column');
@@ -158,17 +142,14 @@ let boredDisplay = function (data) {
   const div = document.createElement('div');
   div.classList.add('container');
   div.classList.add('boredCont');
-
   //append the elements to the splash page
     div.appendChild(col);
     splash.append(div);
-  
   // event listen for a new activity
   document.getElementById('newBoredActivity').addEventListener('click', bored);
+  // reloadBtn.addEventListener('click', reloadBtnAction);
 }
 // end bored API functions
-
-
 
 // roboHash API functions 
 const roboHash = function (event) {
@@ -197,10 +178,13 @@ const roboHash = function (event) {
   title.appendChild(titleText);
   const body = document.createElement('div');
     body.classList.add('roboBody');
+    body.classList.add('apiBody');
   body.appendChild(title);
   body.appendChild(inputDiv);
   body.appendChild(submitBtn);
   body.appendChild(imgContainer);
+  createReloadBtn();
+  body.appendChild(reloadBtn);
   const col = document.createElement('div');
     col.classList.add('column');
     col.classList.add('roboCol');
@@ -230,55 +214,12 @@ const displayAvatar = function (event) {
   userInput.textContent = "";
   document.getElementById('submitBtn').addEventListener('click', displayAvatar);
 }
-
 // end roboHash API functions
-
-
-// // superHero API functions
-// let superHero = function (event) {
-
-//   $(splash).empty();
-
-//   let apiURL = 'http://superheroapi.com/api/10224580750642127';
-
-//   fetch(apiURL)
-//   .then(function (response) {
-//       if (response.ok) {
-//       response.json().then(function (data) {
-//         superHeroDisplay(data);
-//       });
-//       } else {
-//       modalErrorAlert('Error: ' + response.statusText);  
-//       }
-
-//   })
-//   .catch(function (error) {
-//       modalErrorAlert('Unable to connect to Facts Database');
-//   });
-// };
-
-
-// let superHeroDisplay = function (data) { 
-//   const id = data.id;
-//   const biography = data.biography;
-//   const characterImage = data.characterImage;
-//   const work = data.work;
-//   const container = $("<div>")
-//     .html(`<h3>Superhero Superfun, Check Here</h3>
-//       <p>${id}</p>
-//       <p>Characters Biography; ${biography}</p>
-//       <img>Superhero Image; ${characterImage}</img>
-//       <p>Character's Work Occupation and Operation Base;  ${work}</p>`);
-// };
-// end superHero API function
-
-
 
 // cat facts API function
 let catFacts = function (event) {
   lastActivity = 1;
   let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
-  // let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
   fetch(apiURL)
     .then(function (response) {
@@ -295,16 +236,10 @@ let catFacts = function (event) {
     });
 };
 
-
 let catFactsDisplay = function (data) { 
  
   splash.empty();
   const facts = data.text;
-
-  // const container = $("<div>")
-  //     .html(`<h3>Click Fur a Cat Fact!</h3>`)
-
-
   const catFact = document.createElement('p');
   const catFactText = document.createTextNode(facts)
   catFact.appendChild(catFactText)
@@ -325,11 +260,13 @@ let catFactsDisplay = function (data) {
     title.appendChild(catMemeDiv);
   const body = document.createElement('div');
   body.classList.add('catBody');
+  body.classList.add('apiBody');
     body.appendChild(title);
     
     body.appendChild(submitBtn);
     body.appendChild(catFact)
-
+    createReloadBtn();
+    body.appendChild(reloadBtn);
   const col = document.createElement('div');
   col.classList.add('column');
   col.classList.add('catCol');
@@ -375,44 +312,33 @@ let randomJokesDisplay = function (data) {
   // splash.empty();
   const jokeSetup = data.setup;
   const punchline = data.punchline;
-  
   // call the API properties of interest
   const randomJoke = document.createElement('p');
   randomJoke.textContent = jokeSetup;
-
   const thePunchline = document.createElement('p');
   thePunchline.textContent = punchline;
-
-  console.log(randomJoke)
-
   // create button
   const submitBtn = document.createElement('button');
    submitBtn.setAttribute('id', 'newRandomJoke');
-  submitBtn.classList.add('button');
+  submitBtn.setAttribute('class','button is-info is-small is-rounded');
   const btnText = document.createTextNode('Want more giggles, click here!');
     submitBtn.appendChild(btnText);
-
   // meme
   const laughterMeme = document.createElement('img');
   laughterMeme.setAttribute('src', href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhsa4aPuOZrlZLZzth4_cSzrDrVsOoZdzGjA&usqp=CAU')
-  
   // title text
   const title = document.createElement('h3');
-  // const titleText = document.createTextNode('Ahahahahahahaha');
-  //   title.appendChild(titleText);
     title.appendChild(laughterMeme);
-
   //create a div body element
   const body = document.createElement('div');
-  body.classList.add('jokeBody');
-
-
+  body.classList.add('apiBody');
   //append the title, the submit button and the activity to the body
   body.appendChild(title);
   body.appendChild(submitBtn);
   body.appendChild(randomJoke);
   body.appendChild(thePunchline);
-
+  createReloadBtn();
+  body.appendChild(reloadBtn);
   // creates the column all the api elements fit in after the splash page button is pressed
   const col = document.createElement('div');
   col.classList.add('column');
@@ -421,19 +347,12 @@ let randomJokesDisplay = function (data) {
   const div = document.createElement('div');
   div.classList.add('container');
   div.classList.add('jokeCont');
-
   //append the elements to the splash page
     div.appendChild(col);
     splash.append(div);
-  
   // event listen for a new activity
   document.getElementById('newRandomJoke').addEventListener('click', randomJokes);
-
 }
-// end bored API functions
-
-
-
 // end random jokes API function
 
 // function to call the modal error alert
@@ -444,11 +363,14 @@ function modalErrorAlert(error) {
   
 }
 
+// reload page button
+function reloadBtnAction () {
+  location.reload();
+}
 
 // eventlisteners go here
 document.getElementById('bored').addEventListener('click', bored);
 document.getElementById('roboHash').addEventListener('click', roboHash);
-// document.getElementById('superHero').addEventListener('click', superHero);
 document.getElementById('catFacts').addEventListener('click', catFacts);
 document.getElementById('randomJokes').addEventListener('click', randomJokes);
 
@@ -483,7 +405,6 @@ document.getElementById('theList').addEventListener('click', function(e){
 document.getElementById('clearFavorites').addEventListener('click', function (){
 $('#theList').empty()
   localStorage.clear();
-
 })
 
 //Add to favorites list
