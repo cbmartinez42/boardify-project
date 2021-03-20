@@ -125,7 +125,7 @@ const roboHash = function (event) {
   imgContainer.setAttribute('id', 'img-container')
   const submitBtn = document.createElement('button');
     submitBtn.setAttribute('id', 'submitBtn');
-    submitBtn.setAttribute('class', 'button');
+    submitBtn.setAttribute('class', 'button is-info is-small is-rounded');
   // submitBtn.append(imgContainer)
   const btnText = document.createTextNode('Get your AVATAR!');
   submitBtn.appendChild(btnText);
@@ -252,8 +252,8 @@ let catFactsDisplay = function (data) {
   const catFactText = document.createTextNode(facts)
   catFact.appendChild(catFactText)
   const submitBtn = document.createElement('button');
-   submitBtn.setAttribute('id', 'newCatFact');
-  submitBtn.classList.add('button');
+    submitBtn.setAttribute('id', 'newCatFact');
+    submitBtn.setAttribute('class', 'button is-info is-small is-rounded');
 
   const btnText = document.createTextNode('Click Fur a New Cat Fact!');
     submitBtn.appendChild(btnText);
