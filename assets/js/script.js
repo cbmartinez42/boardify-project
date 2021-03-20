@@ -4,15 +4,6 @@ const splash = $(".splash");
 
 
 
-// favorites in the sidebar
-
-
-// main splash page functionality/api. Do we want to replace the splash page, or just have it pop up with modals?
-
-
-// script to save favorites in localStorage when selected
-
-
 // random image for right column
 const rdmImages = ['duelmonitors.jpg', 'killhuman.jpg', 'homeearly.jpg', 'stare.jpg', 'stormtrooper.jpg', 'vegatables.jpg', 'transmission.jpg', 'dogscared.jpg', 'chickynuggies.jpg', 'beware.jpg', 'adt.jpg', 'palehorse.jpg', 'mistake.jpg', 'replacement.jpg', 'dobby.jpg', 'cathavoc.jpg', 'problemsolving.jpg', 'colorblind.jpg', 'coneshame.jpg', 'llama.jpg', 'longday.jpg', 'gift.jpeg', '418-teapot.jpeg', 'dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg', ]
 
@@ -24,8 +15,6 @@ rdmImageCol.append(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
 
 // rdm image function here
-// I searched royalty free images from https://www.pickpik.com/search?q=funny&sort=aesthetic&page=2 and added some more to the images folder
-// I (sdb) am not attached to any of these images, delete away if (any of) you like
 function genRdmImage() {
   // empty prev random images
   $('.random-image').empty();
@@ -71,9 +60,13 @@ let boredDisplay = function (data) {
   boredActivity.textContent = activity;
 
   // create button
+  const reloadBtn = document.createElement('button');
+  submitBtn.setAttribute('id', 'reloadBtn');
+  reloadBtn.setAttribute("class", 'button is-info is-small is-rounded');
+
   const submitBtn = document.createElement('button');
    submitBtn.setAttribute('id', 'newBoredActivity');
-  submitBtn.classList.add('button');
+   submitBtn.setAttribute("class", 'button is-info is-small is-rounded');
   const btnText = document.createTextNode('Still feeling dull? Click for another suggestion!');
     submitBtn.appendChild(btnText);
 
@@ -94,7 +87,8 @@ let boredDisplay = function (data) {
   //append the title, the submit button and the activity to the body
   body.appendChild(title);
   body.appendChild(submitBtn);
-  body.appendChild(boredActivity)
+  body.appendChild(boredActivity);
+  body.appendChild(reloadBtn);
 
   // creates the column all the api elements fit in after the splash page button is pressed
   const col = document.createElement('div');
