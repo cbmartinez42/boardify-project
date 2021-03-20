@@ -122,34 +122,36 @@ const roboHash = function (event) {
   $(splash).empty();
 
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('img-container')
+  imgContainer.setAttribute('id', 'img-container')
   const submitBtn = document.createElement('button');
     submitBtn.setAttribute('id', 'submitBtn');
-    submitBtn.classList.add('button');
-  submitBtn.appendChild(imgContainer)
+    submitBtn.setAttribute('class', 'button');
+  // submitBtn.append(imgContainer)
   const btnText = document.createTextNode('Get your AVATAR!');
   submitBtn.appendChild(btnText);
   const inputDiv = document.createElement('div');
-    inputDiv.classList.add('control');
+    inputDiv.setAttribute('class', 'control');
   const input = document.createElement('input');
-    input.setAttribute('class', 'input user-input');
+    input.setAttribute('class', 'input');
+    input.setAttribute('id', 'user-input')
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', 'Enter your random text or numbers here!');
-  inputDiv.append(input);
+  inputDiv.appendChild(input);
   const title = document.createElement('h3');
   const titleText = document.createTextNode('Create your new AVATAR!');
   title.appendChild(titleText);
   const body = document.createElement('div');
     body.classList.add('roboBody');
   body.appendChild(title);
-  body.append(inputDiv);
+  body.appendChild(inputDiv);
   body.appendChild(submitBtn);
+  body.appendChild(imgContainer);
   const col = document.createElement('div');
     col.classList.add('column');
     col.classList.add('roboCol');
   col.appendChild(body);
   const div = document.createElement('div');
-   div.classList.add('container');
+    div.classList.add('container');
     div.classList.add('roboCont');
   div.appendChild(col);
   splash.append(div);
@@ -158,18 +160,20 @@ const roboHash = function (event) {
 }
 
 const displayAvatar = function (event) {
-  const imgContainer = $('.img-container');
-  const userInput = document.getElementsByClassName('user-input');
+  const imgContainer = $('#img-container');
+  let userInput = document.getElementById('user-input');
   imgContainer.empty();
-  let apiURL = 'https://robohash.org/' + userInput;
+  let apiURL = 'https://robohash.org/' + userInput.value + '?size=300x300';
   
-  const roboHashImage = document.createElement('img')
-  roboHashImage.setAttribute('src', apiURL)
-  roboHashImage.setAttribute('class', 'avatar-image')
-  const avatarDiv = document.createElement('div')
-  avatarDiv.appendChild(roboHashImage)
-  imgContainer.append(avatarDiv)
-  userInput.value = "";
+  const roboHashImage = document.createElement('img');
+  roboHashImage.setAttribute('src', apiURL);
+  roboHashImage.setAttribute('class', 'avatar-image');
+  const avatarFigure = document.createElement('figure');
+  avatarFigure.setAttribute('class', 'image');
+  avatarFigure.appendChild(roboHashImage);
+  imgContainer.append(avatarFigure);
+  userInput.textContent = "";
+  document.getElementById('submitBtn').addEventListener('click', displayAvatar);
 }
 
 // end roboHash API functions
