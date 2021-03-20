@@ -6,11 +6,64 @@ const splash = $(".splash");
 
 // favorites in the sidebar
 
+// last activity acts as an id for the activity the user would click on
+let lastActivity = 1;
+let activityNames = ['Cat Facts','Bored?','Robot Hash', 'Jokes'];
+
+// container to hold the favorite list
+let cont = document.getElementById('favoriteList')
+
+// dynamicaly creats the favorites list
+let newUl = document.createElement('ul')
+newUl.setAttribute('style', 'padding: 5; margin: 5;');
+newUl.setAttribute('id', 'theList');
+
+let favListArr = getFavorites();
+
+for (let i=0; i < favListArr.length ; i++){
+let newLi = document.createElement('li');
+newLi.setAttribute('data-activity', favListArr[i]);
+newLi.innerHTML = activityNames[favListArr[i] -1];
+
+
+newUl.appendChild(newLi);
+}
+
+cont.appendChild(newUl);
+
+
+//grabs favorites from local storage
+function getFavorites(){
+  let favoriteResults = [];
+  let localStorageFavorites = localStorage.getItem('favorites')
+  if (!!localStorageFavorites){
+      favoriteResults = JSON.parse(localStorageFavorites);
+  }
+  return favoriteResults;
+
+}
 
 // main splash page functionality/api. Do we want to replace the splash page, or just have it pop up with modals?
 
-
 // script to save favorites in localStorage when selected
+function addToFavorites() {
+  let currentFavorites = getFavorites();
+  
+  if(currentFavorites.includes(lastActivity)){
+    return
+  } 
+  currentFavorites.push(lastActivity);
+  localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+
+  let newLi = document.createElement('li');
+newLi.setAttribute('data-activity', lastActivity);
+newLi.innerHTML = activityNames[lastActivity -1];
+
+
+newUl.appendChild(newLi);
+  
+}
+
 
 
 // random image for right column
@@ -63,6 +116,7 @@ let bored = function (event) {
 
 let boredDisplay = function (data) {
   // splash.empty();
+  lastActivity = 2;
   const activity = data.activity;
   const participants = data.participants;
   const type = data.type;
@@ -119,6 +173,7 @@ let boredDisplay = function (data) {
 // roboHash API functions 
 const roboHash = function (event) {
   //this empties the contents of the row
+  lastActivity = 3
   $(splash).empty();
 
   const imgContainer = document.createElement('div');
@@ -221,6 +276,7 @@ const displayAvatar = function (event) {
 
 // cat facts API function
 let catFacts = function (event) {
+  lastActivity = 1;
   let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
   // let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
@@ -241,6 +297,7 @@ let catFacts = function (event) {
 
 
 let catFactsDisplay = function (data) { 
+ 
   splash.empty();
   const facts = data.text;
 
@@ -313,6 +370,8 @@ let randomJokes = function (event) {
 };
 
 let randomJokesDisplay = function (data) {
+
+  lastActivity = 4;
   // splash.empty();
   const jokeSetup = data.setup;
   const punchline = data.punchline;
@@ -377,14 +436,14 @@ let randomJokesDisplay = function (data) {
 
 // end random jokes API function
 
-// 'Unable to Connect Modal goes here'
-
+// function to call the modal error alert
 function modalErrorAlert(error) {
   let modalAlert = document.getElementById('modal')
   document.querySelector('.modal-card-body').textContent = error;
   modalAlert.classList.add('is-active')
-
+  
 }
+
 
 // eventlisteners go here
 document.getElementById('bored').addEventListener('click', bored);
@@ -393,18 +452,39 @@ document.getElementById('roboHash').addEventListener('click', roboHash);
 document.getElementById('catFacts').addEventListener('click', catFacts);
 document.getElementById('randomJokes').addEventListener('click', randomJokes);
 
+//modal event listent to set the card to 'active'
+let modalSetInactive = document.querySelectorAll('.closingClick')
+console.log(modalSetInactive);
+modalSetInactive.forEach(el =>
+  {
+    console.log(el);
+    el.addEventListener('click', function () {
+ let modalAlert = document.getElementById('modal')
+ modalAlert.classList.remove('is-active')
+})})
 
+//modal event listener to set the card to 'inactive'
+document.getElementById('theList').addEventListener('click', function(e){
+  let activityIndex = e.target.dataset.activity;
+  
+  switch(activityIndex){
+    case '1':
+      catFacts();
+      break;
+    case '2': bored();
+    break;
+    case '3': roboHash();
+    break;
+    case '4': randomJokes();
+  }
+  })
 
+//Clear favorites list
+document.getElementById('clearFavorites').addEventListener('click', function (){
+$('#theList').empty()
+  localStorage.clear();
 
-// modal event listeners for closing the alert box
-//close button in top-right of box
-document.querySelector('.delete').addEventListener('click', function () {
-  let modalAlert = document.getElementById('modal')
-  modalAlert.classList.remove('is-active')
 })
-//close button in the bottom left
-document.querySelector('.button.is-success').addEventListener('click', function (){
-  let modalAlert = document.getElementById('modal')
-  modalAlert.classList.remove('is-active')
 
-})
+//Add to favorites list
+document.getElementById('addtofavoritesList').addEventListener('click',addToFavorites)

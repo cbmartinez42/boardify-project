@@ -37,23 +37,11 @@
       <div class="columns">
           <div class="column is-one-fifth favorites">
             <h3 class=col-header>Favorites</h3>
-               <ul>
-                <li>
-                    fav 1
-                </li>
-                <li>
-                    fav 2
-                </li>
-                <li>
-                    fav 3
-                </li>
-                <li>
-                    fav 4
-                </li>
-                <li>
-                    fav 5
-                </li>
-            </ul>
+            <div id  = 'favoriteList'>
+            <!-- list drynamically generates here -->
+            </div>
+            <button class="button is-info is-small is-rounded" id ='addtofavoritesList'>Add test</button>
+            <button class="button is-info is-small is-rounded" id = 'clearFavorites' >Clear favorites</button>
           </div>
 
 
@@ -104,20 +92,20 @@
 
 
     </section>
-    
+
     <!-- Hidden Modal Container -->
-    <div class="modal" id = 'modal'>
-      <div class="modal-background"></div>
+    <div class="modal" id='modal'>
+      <div class="modal-background closingClick" id='modal-background'></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">Oops! There seems to be a problem!</p>
-          <button class="delete"  aria-label="close"></button>
+          <button class="delete closingClick" id='delete'  aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <!--  Modal Content ... -->
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Okay</button>
+          <button class="button is-success closingClick" id='closeButton'>Okay</button>
 
         </footer>
       </div>
