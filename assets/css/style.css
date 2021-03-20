@@ -67,7 +67,7 @@ h3 {
 p {
     align-self: center;
     /* margin-left: 2em; */
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
     padding: 15px;
     vertical-align:auto;
     color: #E5D3B3;
@@ -136,21 +136,23 @@ p {
     padding-bottom: 0px;
 }
 
-.field-label {
-    justify-self: left;  /* grrrrrr */
-}
+
 
 .clock-button{
-    max-height: 50px;
-    margin-bottom: 2rem;
+    max-height: 70px;
+    margin-bottom: .5rem;
     /* vertical-align:20px; */
+    display: block;
+    padding: 0;
 }
 
 .clock-button:hover {
-    max-height: 60px;
+    max-height: 80px;
     transition: all .3s ease-in-out;
     cursor: pointer;
+    font-size: 110%;
 }
+
 #funnyImage {
     max-height: 280px;
     width: auto;
