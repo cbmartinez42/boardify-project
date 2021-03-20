@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Boredify!</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Frijole&family=Orbitron:wght@600&family=Sedgwick+Ave&display=swap" rel="stylesheet">
+        <!-- adobe fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/sfq8bzu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
   </head>
@@ -13,11 +19,14 @@
 
     <section class="hero is-info">
         <div class="hero-body">
-                <h1 class="title">
-            Boredify!
+          <h1 class="title">
+            Boredify
           </h1>
           <p class="subtitle">
-            Your one-stop-shop for time-wasters!
+            Your one-stop-shop
+          </p>
+          <p class="subtitle">
+            for wasting time!
           </p>
         </div>
       </section>
@@ -27,7 +36,7 @@
     <section class="section">
       <div class="columns">
           <div class="column is-one-fifth favorites">
-            <h3>Favorites</h3>
+            <h3 class=col-header>Favorites</h3>
                <ul>
                 <li>
                     fav 1
@@ -50,40 +59,44 @@
 
         <!-- main splash page -->
         <div class="column is-half splash ">
-            <h3>Main body</h3>
+            <h3>Boredom Fighting Activities</h3>
             <ul>
                 <li>
                   <div class="field is-horizontal">
-                    <button class="button is-rounded" id="catFacts">Here kitty kitty!</button> 
-                    <p class="field-label">Want to know more about cats? This is the place for you! </p>
-                    </div> 
-                </li>
-                <li>
-                  <button class="button is-rounded" id="bored">Bored Activity</button>
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id="catFacts">
+                    <p>Here kitty kitty! Want to know more about cats? This is the place for you!</p>
+                  </div> 
                 </li>
                 <li>
                   <div class="field is-horizontal">
-                  <button class="button is-rounded" id="roboHash">RoboHash</button> 
-                  <p class="field-label">Enter any text or number for a randomly generated robot, alien, monster and more! Who knows what you'll get!</p>
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id='bored'>
+                    <p>Bored? Click here for a spontaneous activity to try!</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="field is-horizontal">
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id='roboHash'>
+                    <p>RoboHash! Enter any text or number for a randomly generated robot, alien, monster and more!</p>
                   </div>    
                 </li>
                 <li>
                   <div class="field is-horizontal">
-                    <button class="button is-rounded" id="randomJokes">Random Jokes!</button> 
-                    <p class="field-label">View random jokes! Tickle your funny bone!</p>
+                    <img src='./assets/images/mischievous-clock3.png' class="clock-button" id='randomJokes'>
+                    <p>View random jokes! Tickle your funny bone!</p>
                     </div> 
                 </li>
-                <li>
+                <!-- <li>
                   <div class="field is-horizontal">
                     <button class="button is-rounded" id="superHero">Superhero database!</button> 
                     <p class="field-label">Search for just about any Superhero or Villain!</p>
                     </div> 
-                </li>
+                </li> -->
               </ul>
         </div>
 
         <!-- random image in right column -->
         <div class="column is-one-quarter image-col" id="rdm-image">
+          <h3 class=col-header>Be Warned: I am bored. This could get dangerous.</h3>
           <figure class='random-image image'></figure>
           <!-- <img class="random-image" src="/assets/images/catwoman2.jpg" alt="Random Image"> -->
         </div>
@@ -119,19 +132,19 @@
           <div class="columns">
             <div class="column">
               <p>Jaila Primm</p>
-              <a href='#' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png" alt = 'LinkedIn Logo'></a>
+              <a href='#' target="_blank"><img class='linkedIn' src="./assets/images/LinkedIn-Wordmark-White-Logo.wine.png" alt = 'LinkedIn Logo'></a>
             </div>
             <div class="column">
               <p>Kyle Florez</p>
-              <a href='https://www.linkedin.com/in/kyle-florez-29740790/' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png" alt = 'LinkedIn Logo'></a>
+              <a href='https://www.linkedin.com/in/kyle-florez-29740790/' target="_blank"><img class='linkedIn' src="./assets/images/LinkedIn-Wordmark-White-Logo.wine.png" alt = 'LinkedIn Logo'></a>
             </div>
             <div class="column">
               <p>Chris Martinez</p>
-              <a href='https://www.linkedin.com/in/christopher-martinez-6761ba17/' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png" alt = 'LinkedIn Logo'></a>
+              <a href='https://www.linkedin.com/in/christopher-martinez-6761ba17/' target="_blank"><img class='linkedIn' src="./assets/images/LinkedIn-Wordmark-White-Logo.wine.png" alt = 'LinkedIn Logo'></a>
             </div>
             <div class="column">
               <p>Stacy Martin</p>
-              <a href='#' target="_blank"><img class='linkedIn' src="./assets/images/1280px-LinkedIn_Logo.png" alt = 'LinkedIn Logo'></a>
+              <a href='https://www.linkedin.com/in/stacy-brown-81b198204/' target="_blank"><img class='linkedIn' src="./assets/images/LinkedIn-Wordmark-White-Logo.wine.png" alt = 'LinkedIn Logo'></a>
             </div>
           </div>
         </div>
