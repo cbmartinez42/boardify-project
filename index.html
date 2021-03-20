@@ -91,20 +91,20 @@
 
 
     </section>
-    
+
     <!-- Hidden Modal Container -->
     <div class="modal" id = 'modal'>
-      <div class="modal-background"></div>
+      <div class="modal-background" class = 'closingClick' id = 'modal-background'></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">Oops! There seems to be a problem!</p>
-          <button class="delete"  aria-label="close"></button>
+          <button class="delete" class = 'closingClick' id='delete'  aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <!--  Modal Content ... -->
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Okay</button>
+          <button class="button is-success" class = 'closingClick' id ='closeButton'>Okay</button>
 
         </footer>
       </div>

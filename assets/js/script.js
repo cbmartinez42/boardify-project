@@ -165,8 +165,8 @@ let superHeroDisplay = function (data) {
 
 // cat facts API function
 let catFacts = function (event) {
-  let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
-  // let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
+  // let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
+  let apiURL = 'https://cat-fact.herofacts/random';                 // for testing error modal
   
   fetch(apiURL)
     .then(function (response) {
@@ -275,6 +275,9 @@ function modalErrorAlert(error) {
 
 }
 
+
+
+
 // eventlisteners go here
 document.getElementById('bored').addEventListener('click', bored);
 document.getElementById('roboHash').addEventListener('click', roboHash);
@@ -283,17 +286,27 @@ document.getElementById('catFacts').addEventListener('click', catFacts);
 document.getElementById('randomJokes').addEventListener('click', randomJokes);
 
 
+//Modal event listener to handle user clicking on the close boxes or outside the
+let modalSetInactive = document.querySelectorAll('.closingClick')
+modalSetInactive.forEach(addEventListener('click', function () {
+ let modalAlert = document.getElementById('modal')
+ modalAlert.classList.remove('is-active')
+}))
 
-
-// modal event listeners for closing the alert box
 //close button in top-right of box
-document.querySelector('.delete').addEventListener('click', function () {
-  let modalAlert = document.getElementById('modal')
-  modalAlert.classList.remove('is-active')
-})
-//close button in the bottom left
-document.querySelector('.button.is-success').addEventListener('click', function (){
-  let modalAlert = document.getElementById('modal')
-  modalAlert.classList.remove('is-active')
+// document.querySelector('.delete').addEventListener('click', function () {
+//   let modalAlert = document.getElementById('modal')
+//   modalAlert.classList.remove('is-active')
+// })
+// // close button in the bottom left
+// document.querySelector('.button.is-success').addEventListener('click', function (){
+//   let modalAlert = document.getElementById('modal')
+//   modalAlert.classList.remove('is-active')
 
-})
+// })
+// // close modal alert if user clicks outside of the modalalert card
+// document.querySelector('.modal-background').addEventListener('click', function() {
+//   let modalAlert = document.getElementById('modal')
+//   modalAlert.classList.remove('is-active')
+//   })
+// // this seems a tad redundant -- will look into maybe consolidating this to one function instead of 3
