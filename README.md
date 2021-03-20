@@ -32,8 +32,8 @@ APIs to be used:
 * Cat facts - Want to know more about cats? Get a random cat fact here! - https://alexwohlbruck.github.io/cat-facts/docs/
 * Bored API - Get random activity to try to break the borednessocity! - https://www.boredapi.com/
 * RobotHash - Enter any text or number for a randomly generated robot, alien, monster, etc. - https://robohash.org/
-* Random Jokes - Get a random joke for giggles! - https://github.com/15Dkatz/official_joke_api or (https://icanhazdadjoke.com/api, http://www.icndb.com/api/, https://sv443.net/jokeapi/v2/)
-* Superheroes - Search to learn more about any Superhero or Villain- https://superheroapi.com/
+* Random Jokes - Get a random joke for giggles! - https://official-joke-api.appspot.com
+* Superheroes - Search to learn more about any Superhero or Villain - https://superheroapi.com/
 
 If we have time we will add additional APIs to make a more rich UX
 
