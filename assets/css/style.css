@@ -12,6 +12,7 @@ body {
     /* height: 100vh; */
     height: 100%;
     position: relative;
+    display: block;
 }
 
 
@@ -90,7 +91,7 @@ p {
     /* display: flex; */
     justify-content: center;
     align-items: center;
-    display: inline;
+    display: block;
 }
 
 .apiBody > button {
@@ -98,7 +99,7 @@ p {
 }
 
 #funnyImage {
-    max-height: 280px;
+    max-height: 500px;
     width: auto;
 }
 
@@ -135,6 +136,12 @@ p {
     margin-left: auto;
 }
 
+.image > img {
+    max-width: 300px!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #cat-meme {
     max-height: 200px;
     margin-top: 10pt;
@@ -163,17 +170,18 @@ p {
 
 .custom-footer {
     padding: 10px!important;
+    /* padding-right: 5rem!important; */
     font-family: 'Orbitron', sans-serif;
     /* margin-top: auto; */
     /* margin-bottom: 0px;  */
-    /* bottom: 0; */
-    /*left: 0;
-    width: 100%; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: block;
     background-color: black;
     border-top-style: solid;
     border-top-color: gray;
-    /* position: absolute; */
+    /* position: relative; */
 }
 
 .footer-title {

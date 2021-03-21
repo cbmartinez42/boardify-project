@@ -52,7 +52,7 @@ newUl.appendChild(newLi);
 }
 
 // random image generator for right column
-const rdmImages = ['duelmonitors.jpg', 'killhuman.jpg', 'homeearly.jpg', 'stare.jpg', 'stormtrooper.jpg', 'vegatables.jpg', 'transmission.jpg', 'dogscared.jpg', 'chickynuggies.jpg', 'beware.jpg', 'adt.jpg', 'palehorse.jpg', 'mistake.jpg', 'replacement.jpg', 'dobby.jpg', 'cathavoc.jpg', 'problemsolving.jpg', 'colorblind.jpg', 'coneshame.jpg', 'llama.jpg', 'longday.jpg', 'gift.jpeg', '418-teapot.jpeg', 'dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg', ]
+const rdmImages = ['stimulus.jpg', 'wreckingball.gif', 'update.jpg', 'duelmonitors.jpg', 'killhuman.jpg', 'homeearly.jpg', 'stare.jpg', 'stormtrooper.jpg', 'vegatables.jpg', 'transmission.jpg', 'dogscared.jpg', 'chickynuggies.jpg', 'beware.jpg', 'adt.jpg', 'palehorse.jpg', 'mistake.jpg', 'replacement.jpg', 'dobby.jpg', 'cathavoc.jpg', 'problemsolving.jpg', 'colorblind.jpg', 'coneshame.jpg', 'llama.jpg', 'longday.jpg', 'gift.jpeg', '418-teapot.jpeg', 'dognet.jpg', 'claire.jpg', 'claire2.jpg', 'mattwoman.jpg', 'catwoman2.jpg', 'Matt-kitt-catwoman.jpg', 'carrot-bio-biotonne-vegetables-thumb.jpeg', 'danbo-figures-love-longing-thumb.jpeg', 'horse-lizard-pfechse-photoshop-thumb.jpeg', 'nose-mouth-dog-black-thumb.jpeg', 'ostrich-animal-nature-wildlife-thumb.jpeg', 'shark-sea-ocean-blue-thumb.jpeg', 'son-of-a-bitch-inner-pig-dog-dog-pig-thumb.jpeg', 'tomatoes-ketchup-sad-food-thumb.jpeg', 'yoga-frog-relaxed-figure-thumb.jpeg', ]
 const rdmImageBtn = document.createElement('button');
 rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
 rdmImageBtn.setAttribute('id', 'randomImageBtn');
@@ -164,7 +164,12 @@ const roboHash = function (event) {
     submitBtn.setAttribute('class', 'button is-info is-small is-rounded');
   // submitBtn.append(imgContainer)
   const btnText = document.createTextNode('Get your AVATAR!');
+  const roboHashCredit = document.createElement('div');
+  roboHashCredit.style.fontSize = 'medium';
+  const roboHashText = document.createTextNode('Robots lovingly provided by RoboHash.org');
+  roboHashCredit.appendChild(roboHashText);
   submitBtn.appendChild(btnText);
+  // submitBtn.appendChild(roboHashCredit);
   const inputDiv = document.createElement('div');
     inputDiv.setAttribute('class', 'control');
   const input = document.createElement('input');
@@ -182,6 +187,7 @@ const roboHash = function (event) {
   body.appendChild(title);
   body.appendChild(inputDiv);
   body.appendChild(submitBtn);
+  body.appendChild(roboHashCredit);
   body.appendChild(imgContainer);
   createReloadBtn();
   body.appendChild(reloadBtn);
