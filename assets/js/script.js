@@ -219,7 +219,7 @@ const displayAvatar = function (event) {
 // cat facts API function
 let catFacts = function (event) {
   lastActivity = 1;
-  let apiURL = 'https://cat-fact.herokuapp.com/facts/random';
+  let apiURL = 'https://cat-fact.herokuapp.com/facts/random?status.verified=true';
   
   fetch(apiURL)
     .then(function (response) {

@@ -1,6 +1,26 @@
+* {
+    box-sizing: unset;
+}
+
 :root {
     background-image: url(../images/backgroundpatch2.jpg);
     background-repeat: repeat;
+}
+
+html,
+body {
+    /* height: 100vh; */
+    height: 100%;
+    position: relative;
+}
+
+
+.main-container {
+    min-height: 80%;
+    overflow: hidden;
+    display: block;
+    /* position: relative; */
+    padding-bottom: 5rem;
 }
 
 /* hero header */
@@ -14,10 +34,11 @@
     color: #E5D3B3;
     text-align: right;
     margin-bottom: 0px;
+    margin-top: 3rem;
 }
 .hero {
     text-align: center;
-    height: 420px;
+    height: 23rem;
     font-family: badtyp, sans-serif;
     text-shadow: 3px 3px black;
     background-image: url('../images/meltingClockExpanded.jpg');
@@ -27,7 +48,7 @@
 /* favorites sidebar */
 h3 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     font-family: chauncy-pro;
     font-weight: 400;
     font-style: normal;
@@ -39,11 +60,13 @@ h3 {
 /* API activity descriptions */
 p {
     align-self: center;
+    justify-content: center;
     /* margin-top: ; */
     /* padding-top: 15px; */
     /* vertical-align: center; */
-    display: inline;
+    /* display: inline; */
     width: 100%; 
+    font-size: 1.25rem;
 }
 
 /* favorites content */
@@ -53,6 +76,7 @@ p {
     text-align: center;
     justify-items: center;
     display: block;
+    width: 100%;
 }
 
 .apiBody {
@@ -69,24 +93,28 @@ p {
     display: inline;
 }
 
+.apiBody > button {
+    margin: 3rem!important;
+}
+
 #funnyImage {
     max-height: 280px;
     width: auto;
 }
 
 #user-input {
-        /* display: flex; */
-        justify-content: center;
-        align-items: center;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
 }
 
 .clock-button{
     max-height: 70px;
     margin-bottom: .5rem;
-    display: block;
+    display: flex;
     padding: 0;
-    float: left;
-    align-content: center;
+    /* float: left; */
+    /* align-content: center; */
 }
 
 .clock-button:hover {
@@ -112,6 +140,11 @@ p {
     margin-top: 10pt;
 }
 
+.field > p {
+    text-align: center;
+    width: auto;
+    display: block;
+}
 #bored-meme {
     max-height: 400px;
 }
@@ -128,21 +161,22 @@ p {
     max-height: 1.25rem;
 }
 
-.footer {
-    padding: 10px;
+.custom-footer {
+    padding: 10px!important;
     font-family: 'Orbitron', sans-serif;
-    margin-top: auto;
-    margin-bottom: 0px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    /* margin-top: auto; */
+    /* margin-bottom: 0px;  */
+    /* bottom: 0; */
+    /*left: 0;
+    width: 100%; */
     display: block;
     background-color: black;
     border-top-style: solid;
     border-top-color: gray;
+    /* position: absolute; */
 }
 
 .footer-title {
-    text-align: left;
+    text-align: center;
     margin-left: 50px;
 }
