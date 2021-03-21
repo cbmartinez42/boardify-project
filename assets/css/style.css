@@ -42,7 +42,10 @@ p {
     margin-bottom: .5rem;
     padding: 15px;
     vertical-align:auto;
-    color: #E5D3B3;
+    /* color: #E5D3B3;
+    display: flex;
+    justify-content: center; */
+    align-items: center;
 }
 
 /* favorites content */
@@ -62,11 +65,20 @@ p {
     color: #E5D3B3;
     font-size: 24pt;
     padding-bottom: 0px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
 }
 
 #funnyImage {
     max-height: 280px;
     width: auto;
+}
+
+#user-input {
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
 }
 
 .clock-button{
@@ -86,6 +98,7 @@ p {
 
 .button.is-info {
     background-color: #661c00;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     font-size: 12pt;

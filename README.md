@@ -49,4 +49,4 @@ Screenshots of wireframe:
 <img src="./assets/images/wireframe-screenshot-2.PNG">
 
 Screenshot of published site:
-<img src="./assets/images/boredify-screenshot.PNG">
+<img src="./assets/images/boredify2screenshot.png">
