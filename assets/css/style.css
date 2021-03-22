@@ -184,3 +184,8 @@ p {
     text-align: left;
 }
 
+#favoriteList {
+    color: #E5D3B3;
+    font-size: 18px;
+    font-family: chauncy-pro;
+}
