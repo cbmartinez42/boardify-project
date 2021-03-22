@@ -76,7 +76,7 @@ Screenshots of wireframe:
 <img src="./assets/images/wireframe-screenshot-2.PNG">
 
 Screenshot of published site:
-<img src="./assets/images/boredify2screenshot.png">
+<img src="./assets/images/boredify3screenshot.png">
 
 
 ## Features
