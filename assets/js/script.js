@@ -9,7 +9,7 @@ let activityNames = ['Cat Facts','Bored?','Robot Hash', 'Jokes'];
 // container to hold the favorite list
 let cont = document.getElementById('favoriteList')
 
-// dynamicaly creats the favorites list
+// dynamicaly creates the favorites list
 let newUl = document.createElement('ul')
 newUl.setAttribute('style', 'padding: 5; margin: 5;');
 newUl.setAttribute('id', 'theList');
@@ -57,9 +57,8 @@ const rdmImageBtn = document.createElement('button');
 rdmImageBtn.setAttribute('class', 'button is-info is-small is-rounded random-image-btn');
 rdmImageBtn.setAttribute('id', 'randomImageBtn');
 rdmImageBtn.textContent = ("Click here for a surprise!");
-rdmImageCol.append(rdmImageBtn);
+$('.rdm-title').append(rdmImageBtn);
 rdmImageBtn.addEventListener('click', genRdmImage);
-// rdm image function here
 function genRdmImage() {
   // empty prev random images
   $('.random-image').empty();
@@ -106,8 +105,6 @@ let bored = function (event) {
 let boredDisplay = function (data) {
   lastActivity = 2;
   const activity = data.activity;
-  // const participants = data.participants;
-  // const type = data.type;
   const boredActivity = document.createElement('p');
   boredActivity.textContent = activity;
   createReloadBtn();
@@ -122,8 +119,6 @@ let boredDisplay = function (data) {
   boredMeme.setAttribute('id', 'bored-meme')
   // title text
   const title = document.createElement('h3');
-  // const titleText = document.createTextNode('Be Warned: I am bored.  This could get dangerous.');
-  // title.appendChild(titleText);
     title.appendChild(boredMeme);
   //create a div body element
   const body = document.createElement('div');
@@ -132,8 +127,7 @@ let boredDisplay = function (data) {
   body.appendChild(title);
   body.appendChild(submitBtn);
   body.appendChild(boredActivity);
-  // const reloadBtn = document.getElementById("reloadBtn");
-  body.appendChild(reloadBtn);
+   body.appendChild(reloadBtn);
   // creates the column all the api elements fit in after the splash page button is pressed
   const col = document.createElement('div');
   col.classList.add('column');
@@ -147,7 +141,6 @@ let boredDisplay = function (data) {
     splash.append(div);
   // event listen for a new activity
   document.getElementById('newBoredActivity').addEventListener('click', bored);
-  // reloadBtn.addEventListener('click', reloadBtnAction);
 }
 // end bored API functions
 
@@ -162,14 +155,12 @@ const roboHash = function (event) {
   const submitBtn = document.createElement('button');
     submitBtn.setAttribute('id', 'submitBtn');
     submitBtn.setAttribute('class', 'button is-info is-small is-rounded');
-  // submitBtn.append(imgContainer)
   const btnText = document.createTextNode('Get your AVATAR!');
   const roboHashCredit = document.createElement('div');
   roboHashCredit.style.fontSize = 'medium';
   const roboHashText = document.createTextNode('Robots lovingly provided by RoboHash.org');
   roboHashCredit.appendChild(roboHashText);
   submitBtn.appendChild(btnText);
-  // submitBtn.appendChild(roboHashCredit);
   const inputDiv = document.createElement('div');
     inputDiv.setAttribute('class', 'control');
   const input = document.createElement('input');
@@ -267,8 +258,7 @@ let catFactsDisplay = function (data) {
   const body = document.createElement('div');
   body.classList.add('catBody');
   body.classList.add('apiBody');
-    body.appendChild(title);
-    
+    body.appendChild(title); 
     body.appendChild(submitBtn);
     body.appendChild(catFact)
     createReloadBtn();
@@ -327,7 +317,7 @@ let randomJokesDisplay = function (data) {
   const submitBtn = document.createElement('button');
    submitBtn.setAttribute('id', 'newRandomJoke');
   submitBtn.setAttribute('class','button is-info is-small is-rounded');
-  const btnText = document.createTextNode('Want more giggles, click here!');
+  const btnText = document.createTextNode('Want more giggles? Click here!');
     submitBtn.appendChild(btnText);
   // meme
   const laughterMeme = document.createElement('img');
