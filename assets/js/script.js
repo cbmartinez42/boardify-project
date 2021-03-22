@@ -199,7 +199,7 @@ const displayAvatar = function (event) {
   const imgContainer = $('#img-container');
   let userInput = document.getElementById('user-input');
   imgContainer.empty();
-  let apiURL = 'https://robohash.org/' + userInput.value + '?size=300x300';
+  let apiURL = 'https://robohash.org/' + userInput.value + '?set=any';
   
   const roboHashImage = document.createElement('img');
   roboHashImage.setAttribute('src', apiURL);
