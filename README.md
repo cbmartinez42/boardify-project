@@ -1,19 +1,19 @@
-# boredify-project
-An app to cure boredness!
+# Boredify!
+## An app to cure boredness!
 
-## Description
+### Description
 
 Do you ever feel bored out of your mind during a pandemic?! If the answer is yes, you can waste your hours away using Boredify! Want to know more about cats? Who doesn't?! Let us serve up a random cat fact at will to increase your grey matter! If you have Zoom fatigue or are just dazing off in a conversation, you can look up random jokes to tickle your funny bone! Use our random activity generator for something to do to break up the monotony of the day! Want to know what your robot alter-ego looks like? Try our RoboHash app to serve up an avatar based on your input!
 
 
-## User Story
+### User Story
 ```
 AS A Boredify user
 I WANT to be presented with options to waste my time
 SO THAT I can escape boredom
 ```
 
-## Acceptance Criteria
+### Acceptance Criteria
 ```
 GIVEN I need to escape my bored reality
 WHEN I open the website
@@ -28,7 +28,7 @@ WHEN I get bored with an activity
 THEN I can delete it 
 ```
 
-## Features
+### Features
 * Waste your time away with multiple activities designed to give you an escape from boredom!
     * View random jokes
     * View random cat facts
@@ -38,7 +38,7 @@ THEN I can delete it
 * Includes a random image generator to elicit a giggle on demand! 
 * Found an activity you like? Save it to your favorites for easy access as site content grows!
 
-## Technical details
+### Technical details
 * Utilized vanilla JavaScript and jQuery throughout to both provide functionality as well as build DOM elements
 * Utilized Bulma CSS Framework as well as custom CSS for styling
 * Utilized modals in place of alerts to improve the UX
