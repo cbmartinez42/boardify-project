@@ -21,7 +21,7 @@ body {
     overflow: hidden;
     display: block;
     /* position: relative; */
-    padding-bottom: 5rem;
+    margin-bottom: 5rem;
 }
 
 /* hero header */
@@ -148,9 +148,10 @@ p {
 }
 
 .field > p {
-    text-align: center;
+    /* text-align: center; */
     width: auto;
     display: block;
+    /* margin: 2rem 2rem 0 2rem; */
 }
 #bored-meme {
     max-height: 400px;
@@ -169,13 +170,14 @@ p {
 }
 
 .custom-footer {
-    padding: 10px!important;
+    padding: 10px 0px!important;
     /* padding-right: 5rem!important; */
     font-family: 'Orbitron', sans-serif;
+
     /* margin-top: auto; */
     /* margin-bottom: 0px;  */
-    bottom: 0;
-    left: 0;
+    /* margin-right: 4rem; */
+
     width: 100%;
     display: block;
     background-color: black;
@@ -184,7 +186,25 @@ p {
     /* position: relative; */
 }
 
+.footer-custom-inner{
+    
+    bottom: 0;
+    margin-right: 4rem;
+    padding: 0;
+}
 .footer-title {
     text-align: center;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right:auto;
 }
+
+.link-text{
+
+    align-self: flex-start;
+    margin-block-start: 0!important;
+    margin-inline-start: 0;
+    padding: 0;
+    justify-self: left;
+    text-align: left;
+}
+
