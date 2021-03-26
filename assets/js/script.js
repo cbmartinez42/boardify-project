@@ -85,7 +85,8 @@ function createReloadBtn() {
 // // bored API functions
 let bored = function (event) {
   $(splash).empty();
-    let apiURL = 'https://www.boredapi.com/api/activity/';
+    // let apiURL = 'https://www.boredapi.com/api/activity/';
+    let apiURL = 'https://www.boredapi.com/api/acvity/';
   
     fetch(apiURL)
     .then(function (response) {
@@ -216,8 +217,9 @@ const displayAvatar = function (event) {
 // cat facts API function
 let catFacts = function (event) {
   lastActivity = 1;
-  let apiURL = 'https://cat-fact.herokuapp.com/facts/random?status.verified=true';
-  
+  // let apiURL = 'https://cat-fact.herokuapp.com/facts/random?status.verified=true';
+  let apiURL = 'https://cat-fact.herokereauapp.com/facts/random?serretatus.verified=true';
+
   fetch(apiURL)
     .then(function (response) {
       if (response.ok) {
